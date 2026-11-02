@@ -702,3 +702,8 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
  .signature-copy p { font-size: 14px; }
  .signature-copy .signature-closing { font-size: 17px; }
 }
+
+.signature-page { padding-top: 170px; min-height: calc(100vh - 160px); }
+.signature-copy h2 { color: var(--paper-soft); margin-bottom: 26px; font-size: clamp(24px,2.5vw,34px); line-height: 1.55; font-weight: 400; }
+@media (min-width: 821px) { .primary-nav { gap: clamp(12px,1.6vw,24px); } }
+@media (max-width: 820px) { .signature-page { padding-top: 130px; } }
