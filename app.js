@@ -158,7 +158,10 @@ document.querySelectorAll(".primary-nav a").forEach((link) => link.addEventListe
   document.body.classList.remove("menu-open");
 }));
 
-if ("IntersectionObserver" in window) {
+document.querySelectorAll(".philosophy-copy > *, .story-grid > *, .watch-page-copy > *, .contact-actions, .social-links").forEach((node) => {
+  if (!node.parentElement.closest(".reveal")) node.classList.add("reveal");
+});
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   document.documentElement.classList.add("js");
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
