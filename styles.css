@@ -209,7 +209,7 @@ main, footer { overflow: clip; }
 .watch-information { padding: clamp(34px, 5.4vw, 74px); display: flex; flex-direction: column; align-items: flex-start; }
 .watch-topline { display: flex; align-items: center; gap: 12px; color: #a8ada8; font: 500 8px/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
 .orange-dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: var(--orange); }
-.watch-information h2 { margin-top: 24px; color: var(--paper-soft); font: 400 clamp(66px, 8vw, 104px)/.92 var(--serif); letter-spacing: -.05em; }
+.watch-information h2 { margin-top: 24px; color: var(--paper-soft); font: 400 clamp(66px, 8vw, 104px)/.92 var(--serif); letter-spacing: -.05em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1, "onum" 0; }
 .watch-subtitle { margin: 4px 0 20px; color: var(--orange-light); font: 400 18px/1.4 var(--serif); }
 .watch-description { max-width: 490px; margin-bottom: 27px; color: #afb4af; font: 400 12px/1.85 var(--sans); }
 .watch-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; margin-bottom: 27px; border-top: 1px solid var(--rule-dark); }
@@ -301,7 +301,7 @@ main, footer { overflow: clip; }
 .watch-page-copy { max-width: 560px; }
 .watch-page-copy .eyebrow { margin-bottom: 33px; }
 .watch-page-edition { margin-bottom: 6px; color: var(--orange-light); font: 400 18px/1.4 var(--serif); }
-.watch-page-copy h1 { margin: 0 0 22px; color: var(--paper-soft); font: 400 clamp(68px, 8vw, 112px)/.94 var(--serif); letter-spacing: -.05em; }
+.watch-page-copy h1 { margin: 0 0 22px; color: var(--paper-soft); font: 400 clamp(68px, 8vw, 112px)/.94 var(--serif); letter-spacing: -.05em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1, "onum" 0; }
 .watch-page-copy h1 small { color: #a8aea8; font: 500 10px/1.5 var(--sans); letter-spacing: .12em; white-space: nowrap; }
 .watch-page-description { max-width: 450px; margin-bottom: 22px; color: #aeb4ae; font: 400 13px/1.9 var(--sans); }
 .watch-page-status { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; color: #e1e4df; font: 500 9px/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
