@@ -658,3 +658,7 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
  .product-display { border-inline-end: 0; border-bottom: 1px solid var(--rule-dark); padding: 24px; }
  .product-display img { height: 440px; max-height: 65vh; }
 }
+
+.consumer-rights { margin-top: 40px; padding: 35px clamp(25px,4vw,60px); border: 1px solid var(--rule-light); }
+.consumer-rights h2 { font-size: clamp(24px,3vw,34px); font-weight: 400; line-height: 1.6; margin-bottom: 20px; }
+.consumer-rights p { max-width: 900px; line-height: 2; }
