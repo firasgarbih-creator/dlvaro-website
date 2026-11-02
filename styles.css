@@ -20,6 +20,27 @@
 }
 * { box-sizing: border-box; }
 .model-code { display: inline-block; white-space: nowrap; font-family: var(--sans) !important; font-variant-numeric: lining-nums; font-feature-settings: normal; font-weight: 500; letter-spacing: .015em; }
+.brand-splash {
+  position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 52%, rgba(225, 230, 225, .08), transparent 31%), #080a0a;
+  color: var(--paper-soft); opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .55s ease, visibility .55s ease;
+}
+.brand-splash::before {
+  content: ""; position: absolute; inset: 0; opacity: .15; pointer-events: none;
+  background: linear-gradient(90deg, transparent calc(50% - .5px), rgba(238, 240, 234, .22) 50%, transparent calc(50% + .5px));
+}
+.splash-pending .brand-splash { opacity: 1; visibility: visible; pointer-events: auto; animation: splash-failsafe 3.2s linear forwards; }
+.splash-exit .brand-splash { opacity: 0; pointer-events: none; }
+.splash-lockup { position: relative; display: grid; justify-items: center; gap: 20px; opacity: 0; animation: splash-lockup-reveal .95s .12s cubic-bezier(.2,.7,.25,1) forwards; }
+.splash-lockup img { width: clamp(180px, 27vw, 310px); max-height: 47svh; object-fit: contain; filter: drop-shadow(0 20px 45px rgba(0,0,0,.55)); }
+.splash-lockup p { color: #adb3ad; font: 500 9px/1.5 var(--sans); letter-spacing: .22em; text-align: center; text-transform: uppercase; }
+.splash-rule { position: absolute; top: calc(50% + clamp(110px, 25vh, 230px)); width: 58px; height: 1px; background: var(--orange); transform: scaleX(0); animation: splash-rule-reveal .75s .4s ease-out forwards; }
+.splash-skip { position: absolute; z-index: 1; top: 26px; inset-inline-end: var(--page-pad); padding: 9px 12px; border: 1px solid rgba(238,240,234,.28); background: transparent; color: #d8dbd5; cursor: pointer; font: 500 8px/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.splash-skip:hover { border-color: var(--orange-light); color: #fff; }
+@keyframes splash-lockup-reveal { from { opacity: 0; transform: translateY(14px) scale(.97); filter: blur(7px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+@keyframes splash-rule-reveal { to { transform: scaleX(1); } }
+@keyframes splash-failsafe { 0%, 82% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
@@ -516,4 +537,5 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .splash-pending .brand-splash { opacity: 0; visibility: hidden; animation: none; }
 }
