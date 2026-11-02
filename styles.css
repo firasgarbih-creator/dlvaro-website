@@ -662,3 +662,23 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .consumer-rights { margin-top: 40px; padding: 35px clamp(25px,4vw,60px); border: 1px solid var(--rule-light); }
 .consumer-rights h2 { font-size: clamp(24px,3vw,34px); font-weight: 400; line-height: 1.6; margin-bottom: 20px; }
 .consumer-rights p { max-width: 900px; line-height: 2; }
+
+.strap-showcase { grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap: clamp(25px,4vw,65px); align-items: start; }
+.strap-showcase .accessory-photo { position: sticky; top: 30px; }
+.strap-showcase .accessory-photo img { height: auto; aspect-ratio: 1402 / 1122; object-fit: contain; }
+.strap-colours { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0 18px; }
+.strap-colour { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--rule-dark); background: transparent; color: var(--paper-soft); cursor: pointer; font-size: 12px; }
+.strap-colour:hover, .strap-colour[aria-pressed="true"] { border-color: var(--orange-light); background: rgba(233,81,29,.09); }
+.swatch { width: 15px; height: 15px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); }
+.swatch-orange { background: #f36b0e; }.swatch-white { background: #f6f6f6; }.swatch-yellow { background: #ffcf00; }.swatch-green { background: #597b20; }.swatch-black { background: #141414; }
+.colour-status { color: var(--silver); }
+@media (max-width: 820px) {
+ .strap-showcase { grid-template-columns: 1fr; }
+ .strap-showcase .accessory-photo { position: static; grid-row: 1; }
+ .strap-showcase .accessory-copy { grid-row: 2; }
+}
+
+.customer-phone { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 14px; }
+.customer-phone bdi { font-family: var(--sans); white-space: nowrap; }
+.customer-phone:hover { color: var(--orange-light); }
+.contact-phone { margin-top: 28px; }
