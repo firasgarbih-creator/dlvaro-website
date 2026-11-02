@@ -18,7 +18,7 @@
   --page-pad: clamp(22px, 6.4vw, 112px);
   --content: 1440px;
 }
-* { box-sizing: border-box; }
+* { box-sizing: border-box; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1, "onum" 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
