@@ -647,3 +647,14 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
   .footer-map { gap: 18px 25px; }
   .support-contact { margin-top: 35px; gap: 22px; }
 }
+
+.product-display { display: flex; flex-direction: column; justify-content: center; padding: 30px; border-inline-end: 1px solid var(--rule-dark); background: #080a0a; }
+.product-display img { width: 100%; height: min(70vh,700px); object-fit: contain; }
+.product-display figcaption { margin-top: 20px; color: var(--silver); text-align: center; font-size: 12px; }
+@media (max-width: 820px) {
+ .primary-nav { position: absolute; inset: 88px 0 auto; height: calc(100vh - 88px); height: calc(100dvh - 88px); justify-content: flex-start; overflow-y: auto; padding-top: 48px; }
+}
+@media (max-width: 620px) {
+ .product-display { border-inline-end: 0; border-bottom: 1px solid var(--rule-dark); padding: 24px; }
+ .product-display img { height: 440px; max-height: 65vh; }
+}

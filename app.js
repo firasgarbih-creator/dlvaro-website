@@ -148,6 +148,7 @@ function applyLocale(next) {
   });
   localeButton.textContent = locale === "en" ? "عربي" : "EN";
   localeButton.setAttribute("aria-label", locale === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية");
+  menuButton.setAttribute("aria-label", locale === "ar" ? "القائمة" : "Menu");
   localStorage.setItem("dlvaro-locale", locale);
   const url = new URL(window.location.href);
   url.searchParams.set("lang", locale);
@@ -206,3 +207,11 @@ initGalleryReel();
 if (document.body.dataset.page === "home" && ["#gallery", "#collection"].includes(location.hash)) {
   location.replace("products.html?lang=" + locale + location.hash);
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+    menuButton.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+    menuButton.focus();
+  }
+});
