@@ -21,6 +21,9 @@ const copy = {
   }
 };
 
+Object.assign(copy.en, {"navHome": "Home", "navProducts": "Products", "navAccessories": "Accessories", "navService": "Warranty & service", "siteMap": "Site map", "explore": "Explore DLVARO", "sectionsTitle": "Discover the world of DLVARO.", "productsShort": "Discover DV-01, its design, details, and numbered edition.", "accessoriesShort": "Explore the orange hybrid strap and ask about accessories.", "serviceShort": "A dedicated space for warranty and maintenance inquiries.", "exploreProducts": "Explore the watches", "exploreAccessories": "Explore accessories", "exploreService": "Warranty & maintenance", "productsIntro": "DV-01 LIMITED EDITION. A first creation, expressed in fifty numbered pieces.", "accessoriesIntro": "The details that complete the watch. Discover the DV-01 strap and contact us about accessories.", "strapPhotoAlt": "Orange rubber and fabric strap fitted to the DV-01 watch", "strapPhotoNote": "The strap is shown fitted to DV-01.", "strapKicker": "The DV-01 strap", "strapTitle": "A signature in orange.", "strapDescription": "The DV-01 strap combines rubber and fabric in orange, continuing the visual identity of the watch.", "material": "Material", "colour": "Colour", "orange": "Orange", "strapMaterial": "Rubber and fabric blend", "accessoryAvailability": "For standalone strap availability and compatibility, please contact DLVARO.", "strapInquiry": "Inquire about straps", "serviceIntro": "For questions about warranty or maintenance, contact DLVARO directly.", "warrantyTitle": "Warranty inquiries", "warrantyText": "Contact us for warranty terms, duration, and coverage applicable to your watch.", "warrantyCta": "Ask about warranty", "maintenanceTitle": "Maintenance inquiries", "maintenanceText": "Tell us about your watch and the assistance you need. Contact us to discuss the next steps before sending your watch.", "maintenanceCta": "Discuss maintenance", "supportContact": "Speak with DLVARO", "supportPrepare": "Include the model, edition number if available, and a short description of your inquiry.", "productsMeta": "Explore DLVARO watches and the DV-01 Limited Edition with its product image reel and specifications.", "accessoriesMeta": "Discover the orange rubber and fabric strap on DV-01. Contact DLVARO about accessories and compatibility.", "serviceMeta": "Contact DLVARO for warranty terms and maintenance inquiries."});
+Object.assign(copy.ar, {"navHome": "الرئيسية", "navProducts": "المنتجات", "navAccessories": "الأكسسوارات", "navService": "الضمان والصيانة", "siteMap": "خريطة الموقع", "explore": "اكتشفوا DLVARO", "sectionsTitle": "اكتشفوا عالم DLVARO.", "productsShort": "تعرّفوا على DV-01 وتصميمها وتفاصيل إصدارها المرقّم.", "accessoriesShort": "اكتشفوا السوار البرتقالي المركّب واستفسروا عن الأكسسوارات.", "serviceShort": "مساحة مخصصة لاستفسارات الضمان والصيانة.", "exploreProducts": "اكتشفوا الساعات", "exploreAccessories": "اكتشفوا الأكسسوارات", "exploreService": "الضمان والصيانة", "productsIntro": "DV-01 LIMITED EDITION. الإبداع الأول في خمسين قطعة مرقّمة.", "accessoriesIntro": "تفاصيل تكمل الساعة. اكتشفوا سوار DV-01 وتواصلوا معنا للاستفسار عن الأكسسوارات.", "strapPhotoAlt": "سوار برتقالي من الربر والقماش مركّب على ساعة DV-01", "strapPhotoNote": "السوار ظاهر في الصورة مركّبًا على ساعة DV-01.", "strapKicker": "سوار DV-01", "strapTitle": "بصمة باللون البرتقالي.", "strapDescription": "يجمع سوار DV-01 بين الربر والقماش باللون البرتقالي، امتدادًا للهوية البصرية للساعة.", "material": "الخامة", "colour": "اللون", "orange": "برتقالي", "strapMaterial": "مزيج من الربر والقماش", "accessoryAvailability": "للاستفسار عن توفر السوار بشكل مستقل ومدى توافقه، تواصلوا مع DLVARO.", "strapInquiry": "استفسروا عن الأساور", "serviceIntro": "للاستفسار عن الضمان أو الصيانة، تواصلوا مباشرةً مع DLVARO.", "warrantyTitle": "استفسارات الضمان", "warrantyText": "تواصلوا معنا لمعرفة شروط الضمان ومدته ونطاق التغطية المنطبقة على ساعتكم.", "warrantyCta": "استفسروا عن الضمان", "maintenanceTitle": "استفسارات الصيانة", "maintenanceText": "أخبرونا عن ساعتكم والمساعدة المطلوبة. تواصلوا معنا لمناقشة الخطوات التالية قبل إرسال الساعة.", "maintenanceCta": "استفسروا عن الصيانة", "supportContact": "تواصلوا مع DLVARO", "supportPrepare": "اذكروا الموديل ورقم القطعة إن توفر، مع وصف مختصر للاستفسار.", "productsMeta": "اكتشفوا ساعات DLVARO وإصدار DV-01 المحدود، مع معرض الصور والمواصفات.", "accessoriesMeta": "تعرّفوا على سوار DV-01 البرتقالي من الربر والقماش. تواصلوا مع DLVARO للاستفسار عن الأكسسوارات والتوافق.", "serviceMeta": "تواصلوا مع DLVARO للاستفسار عن شروط الضمان والصيانة."});
+
 const queryLocale = new URLSearchParams(window.location.search).get("lang");
 let locale = ["en", "ar"].includes(queryLocale) ? queryLocale : (localStorage.getItem("dlvaro-locale") || "en");
 let watchData;
@@ -112,9 +115,27 @@ function applyLocale(next) {
   const lang = copy[locale];
   document.documentElement.lang = locale;
   document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-  const watchPage = document.body.dataset.page === "watch";
+  const page = document.body.dataset.page || "home";
+  const watchPage = page === "watch";
   document.title = locale === "ar" ? (watchPage ? "DV-01 LIMITED EDITION — DLVARO" : "DLVARO — التصميم فوق التعقيد") : (watchPage ? "DV-01 Limited Edition — DLVARO" : "DLVARO — Design over complexity");
   document.querySelector('meta[name="description"]')?.setAttribute("content", watchPage ? lang.watchMetaDescription : lang.metaDescription);
+  const pageKeys = { products: "navProducts", accessories: "navAccessories", service: "navService" };
+  if (pageKeys[page]) {
+    document.title = lang[pageKeys[page]] + " — DLVARO";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", lang[page + "Meta"]);
+  }
+  document.querySelectorAll("a[href]").forEach((link) => {
+    const target = new URL(link.getAttribute("href"), window.location.href);
+    if (target.origin !== window.location.origin || !/\.html$/.test(target.pathname)) return;
+    target.searchParams.set("lang", locale);
+    link.href = target.pathname + target.search + target.hash;
+  });
+  document.querySelectorAll(".primary-nav a").forEach((link) => {
+    const file = new URL(link.href).pathname.split("/").pop();
+    const active = file === (page === "watch" ? "products" : page === "home" ? "index" : page) + ".html";
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const value = lang[node.dataset.i18n];
     if (value !== undefined) node.innerHTML = value;
@@ -180,3 +201,8 @@ fetch("data/watch.json").then((r) => r.json()).then((data) => { watchData = data
 applyLocale(locale);
 initBrandSplash();
 initGalleryReel();
+
+// Preserve bookmarks to sections moved to the dedicated products page.
+if (document.body.dataset.page === "home" && ["#gallery", "#collection"].includes(location.hash)) {
+  location.replace("products.html?lang=" + locale + location.hash);
+}
