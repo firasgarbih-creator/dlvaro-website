@@ -25,6 +25,29 @@ let watchData;
 const localeButton = document.querySelector(".language-toggle");
 const menuButton = document.querySelector(".menu-toggle");
 
+function styleModelCodes(root = document.body) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (node.nodeValue.includes("DV-01") && !node.parentElement?.closest(".model-code, script, style, noscript")) nodes.push(node);
+  }
+  nodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    let cursor = 0;
+    for (const match of node.nodeValue.matchAll(/DV-01/g)) {
+      fragment.append(node.nodeValue.slice(cursor, match.index));
+      const code = document.createElement("span");
+      code.className = "model-code";
+      code.textContent = match[0];
+      fragment.append(code);
+      cursor = match.index + match[0].length;
+    }
+    fragment.append(node.nodeValue.slice(cursor));
+    node.replaceWith(fragment);
+  });
+}
+
 function applyLocale(next) {
   locale = next;
   const lang = copy[locale];
@@ -50,6 +73,7 @@ function applyLocale(next) {
   url.searchParams.set("lang", locale);
   window.history.replaceState({}, "", url);
   if (watchData) renderWatchData();
+  else styleModelCodes();
 }
 
 function renderWatchData() {
@@ -61,6 +85,7 @@ function renderWatchData() {
     else if (value && typeof value === "object") value = value[locale];
     if (value !== undefined) node.textContent = value;
   });
+  styleModelCodes();
 }
 
 localeButton.addEventListener("click", () => applyLocale(locale === "en" ? "ar" : "en"));
