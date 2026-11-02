@@ -682,3 +682,23 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .customer-phone bdi { font-family: var(--sans); white-space: nowrap; }
 .customer-phone:hover { color: var(--orange-light); }
 .contact-phone { margin-top: 28px; }
+
+/* Approved architectural signature replaces section 02's image reel. */
+.signature-section { background: var(--ink); border-top: 1px solid var(--rule-dark); }
+.signature-title { max-width: 1080px; margin: 30px 0 56px; font-size: clamp(28px,4vw,54px); line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
+.signature-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(32px,6vw,88px); align-items: start; }
+.signature-art { position: sticky; top: 32px; }
+.signature-art img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
+.signature-copy h3 { color: var(--paper-soft); margin-bottom: 26px; font-size: clamp(24px,2.5vw,34px); line-height: 1.55; font-weight: 400; }
+.signature-copy p { margin-bottom: 24px; color: var(--silver); font-size: 15px; line-height: 1.95; }
+.signature-copy .signature-closing { color: var(--paper-soft); padding-inline-start: 22px; border-inline-start: 2px solid var(--orange); font-size: 18px; }
+.signature-copy .signature-signoff { color: var(--orange-light); font-size: 15px; margin: 32px 0 0; }
+@media (max-width: 820px) {
+ .signature-layout { grid-template-columns: 1fr; gap: 34px; }
+ .signature-art { position: static; max-width: 560px; width: 100%; margin-inline: auto; }
+ .signature-title { margin-bottom: 32px; }
+}
+@media (max-width: 620px) {
+ .signature-copy p { font-size: 14px; }
+ .signature-copy .signature-closing { font-size: 17px; }
+}
