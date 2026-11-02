@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=orange-bg-1">
-  <script src="app.js?v=splash-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=carousel-1">
+  <script src="app.js?v=carousel-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
@@ -70,8 +70,26 @@
       <div class="hero-bottom"><span data-i18n="heroBottomLeft">Designed around an idea</span><span>DLVARO / 01</span><span data-i18n="heroBottomRight">Scroll to explore&nbsp; ↓</span></div>
     </section>
 
+    <section class="product-gallery section-pad" id="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-heading reveal">
+        <div class="section-kicker"><span>01 /</span><span data-i18n="galleryKicker">The details</span></div>
+        <div><h2 id="gallery-title" data-i18n="galleryTitle">A closer look at<br><em>DV-01.</em></h2><p data-i18n="galleryIntro">Explore the case, dial, and presentation through the approved product visuals.</p></div>
+        <div class="gallery-controls" role="group" aria-label="Gallery controls" data-i18n-aria="galleryControls">
+          <button class="gallery-prev" type="button" aria-label="Previous image" data-i18n-aria="galleryPrevious"><span aria-hidden="true">←</span></button>
+          <span class="gallery-progress" aria-live="polite"><strong class="gallery-current">01</strong><span> / 04</span></span>
+          <button class="gallery-next" type="button" aria-label="Next image" data-i18n-aria="galleryNext"><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="gallery-grid" dir="ltr" role="group" aria-roledescription="carousel" aria-label="DV-01 image reel" data-i18n-aria="galleryReel" tabindex="0">
+        <figure class="gallery-card gallery-case reveal" role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/dv-01-case-profile.jpg" alt="Side profile of the DLVARO DV-01 case with edition engraving" data-i18n-alt="galleryAltCase" width="1087" height="1446" loading="lazy"><figcaption><span>01</span><strong data-i18n="galleryCase">Case profile</strong></figcaption></figure>
+        <figure class="gallery-card gallery-box reveal" role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/dlvaro-presentation-box.jpg" alt="DLVARO presentation box concept with geometric black finish" data-i18n-alt="galleryAltBox" width="1254" height="1254" loading="lazy"><figcaption><span>02</span><strong data-i18n="galleryBox">Presentation concept</strong></figcaption></figure>
+        <figure class="gallery-card gallery-back reveal" role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/dv-01-caseback.jpg" alt="Rear view of the DLVARO DV-01 case" data-i18n-alt="galleryAltBack" width="1160" height="1355" loading="lazy"><figcaption><span>03</span><strong data-i18n="galleryBack">Caseback detail</strong></figcaption></figure>
+        <figure class="gallery-card gallery-dial reveal" role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/dv-01-dial-detail.jpg" alt="Close detail of the DLVARO DV-01 dial and geometric pattern" data-i18n-alt="galleryAltDial" width="1254" height="1254" loading="lazy"><figcaption><span>04</span><strong data-i18n="galleryDial">Dial architecture</strong></figcaption></figure>
+      </div>
+    </section>
+
     <section class="manifesto section-pad" id="identity">
-      <div class="section-kicker reveal"><span>01 /</span><span data-i18n="manifestoKicker">Founding identity</span></div>
+      <div class="section-kicker reveal"><span>02 /</span><span data-i18n="manifestoKicker">Founding identity</span></div>
       <div class="manifesto-body reveal">
         <h2 data-i18n="manifestoQuote">A watch can be more than a mechanism.<br><em>It can be a work of art.</em></h2>
         <div class="manifesto-detail">
@@ -84,7 +102,7 @@
 
     <section class="collection section-pad" id="collection">
       <div class="collection-heading reveal">
-        <div class="section-kicker"><span>02 /</span><span data-i18n="collectionKicker">The first creation</span></div>
+        <div class="section-kicker"><span>03 /</span><span data-i18n="collectionKicker">The first creation</span></div>
         <p data-i18n="collectionIntro">A singular beginning. Fifty numbered expressions.</p>
       </div>
       <div class="watch-card reveal">
@@ -113,19 +131,6 @@
           <a class="watch-page-link" href="dv-01.html" data-i18n="fullPresentation">Full watch presentation&nbsp; ↗</a>
           <p class="coming-soon" data-i18n="comingSoon">Coming soon</p>
         </div>
-      </div>
-    </section>
-
-    <section class="product-gallery section-pad" id="gallery" aria-labelledby="gallery-title">
-      <div class="gallery-heading reveal">
-        <div class="section-kicker"><span>03 /</span><span data-i18n="galleryKicker">The details</span></div>
-        <div><h2 id="gallery-title" data-i18n="galleryTitle">A closer look at<br><em>DV-01.</em></h2><p data-i18n="galleryIntro">Explore the case, dial, and presentation through the approved product visuals.</p></div>
-      </div>
-      <div class="gallery-grid">
-        <figure class="gallery-card gallery-case reveal"><img src="assets/dv-01-case-profile.jpg" alt="Side profile of the DLVARO DV-01 case with edition engraving" data-i18n-alt="galleryAltCase" width="1087" height="1446" loading="lazy"><figcaption><span>01</span><strong data-i18n="galleryCase">Case profile</strong></figcaption></figure>
-        <figure class="gallery-card gallery-box reveal"><img src="assets/dlvaro-presentation-box.jpg" alt="DLVARO presentation box concept with geometric black finish" data-i18n-alt="galleryAltBox" width="1254" height="1254" loading="lazy"><figcaption><span>02</span><strong data-i18n="galleryBox">Presentation concept</strong></figcaption></figure>
-        <figure class="gallery-card gallery-back reveal"><img src="assets/dv-01-caseback.jpg" alt="Rear view of the DLVARO DV-01 case" data-i18n-alt="galleryAltBack" width="1160" height="1355" loading="lazy"><figcaption><span>03</span><strong data-i18n="galleryBack">Caseback detail</strong></figcaption></figure>
-        <figure class="gallery-card gallery-dial reveal"><img src="assets/dv-01-dial-detail.jpg" alt="Close detail of the DLVARO DV-01 dial and geometric pattern" data-i18n-alt="galleryAltDial" width="1254" height="1254" loading="lazy"><figcaption><span>04</span><strong data-i18n="galleryDial">Dial architecture</strong></figcaption></figure>
       </div>
     </section>
 
