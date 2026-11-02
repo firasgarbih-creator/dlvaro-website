@@ -9,15 +9,24 @@
   <link rel="alternate" hreflang="ar" href="index.html?lang=ar">
   <link rel="alternate" hreflang="x-default" href="index.html?lang=en">
   <title>DLVARO — Design over complexity</title>
+  <script>try { if (!sessionStorage.getItem("dlvaro-splash-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("splash-pending"); } catch (_) {}</script>
   <link rel="preload" as="image" href="assets/dv-01-approved.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=redesign-2">
-  <script src="app.js?v=gallery-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=splash-1">
+  <script src="app.js?v=splash-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="brand-splash" aria-label="DLVARO opening animation">
+    <button class="splash-skip" type="button" data-i18n="splashSkip">Skip intro</button>
+    <div class="splash-lockup" aria-hidden="true">
+      <img src="assets/dlvaro-logo.png" alt="">
+      <p data-i18n="splashLine">The watch is the canvas. Time is the medium.</p>
+    </div>
+    <span class="splash-rule" aria-hidden="true"></span>
+  </div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="DLVARO home">
       <img src="assets/dlvaro-logo.png" alt="DLVARO emblem and wordmark">
