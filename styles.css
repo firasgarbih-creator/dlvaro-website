@@ -109,7 +109,7 @@ main, footer { overflow: clip; }
   align-items: center; gap: clamp(32px, 5.5vw, 84px);
   background:
     radial-gradient(ellipse at 73% 49%, rgba(218, 224, 217, .075), transparent 32%),
-    radial-gradient(ellipse at 18% 80%, rgba(233, 81, 29, .11), transparent 32%),
+    radial-gradient(ellipse at 50% 80%, rgba(233, 81, 29, .11), transparent 32%),
     var(--ink);
 }
 .hero::before {
@@ -316,7 +316,7 @@ main, footer { overflow: clip; }
   min-height: 760px; padding: 128px var(--page-pad) 76px;
   display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
   align-items: center; gap: clamp(38px, 7vw, 100px);
-  background: radial-gradient(ellipse at 22% 52%, rgba(233, 81, 29, .1), transparent 42%), var(--ink);
+  background: radial-gradient(ellipse at 50% 52%, rgba(233, 81, 29, .1), transparent 42%), var(--ink);
 }
 .watch-page-image { width: min(100%, 520px); justify-self: center; overflow: hidden; background: #090b0b; box-shadow: 0 28px 84px rgba(0, 0, 0, .4); }
 .watch-page-image img { width: 100%; aspect-ratio: 1087 / 1446; object-fit: contain; }
