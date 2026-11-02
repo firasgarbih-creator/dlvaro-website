@@ -199,11 +199,10 @@ main, footer { overflow: clip; }
 }
 .manifesto-stamp {
   position: absolute; inset-inline-end: var(--page-pad); bottom: 22px;
-  display: flex; align-items: center; gap: 7px;
-  color: rgba(217, 220, 215, .07); font: 500 clamp(70px, 12vw, 170px)/.8 var(--serif);
-  pointer-events: none;
+  width: clamp(86px, 10vw, 140px); aspect-ratio: 1;
+  opacity: .38; mix-blend-mode: screen; pointer-events: none;
 }
-.manifesto-stamp span { color: rgba(233, 81, 29, .28); font-size: .44em; }
+.manifesto-stamp img, .orbit-core img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .collection { background: var(--paper); color: var(--ink); }
 .collection .section-kicker, .story .section-kicker { color: #616862; }
 .collection-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 38px; }
@@ -285,7 +284,7 @@ main, footer { overflow: clip; }
 .orbit { position: absolute; border: 1px solid rgba(231, 234, 228, .24); border-radius: 50%; transform: rotate(-25deg); }
 .orbit-one { width: 78%; height: 58%; }
 .orbit-two { width: 57%; height: 84%; border-color: rgba(233, 81, 29, .6); transform: rotate(48deg); }
-.orbit-core { color: #d6d9d3; font: 400 130px/1 var(--serif); }
+.orbit-core { width: 65%; aspect-ratio: 1; mix-blend-mode: screen; }
 .orbit-label { position: absolute; inset-inline-end: 14%; bottom: 14%; color: #919791; font: 500 8px/1.4 var(--sans); letter-spacing: .18em; }
 .philosophy-copy { max-width: 560px; }
 .philosophy .section-kicker, .contact .section-kicker { color: #aab0aa; }
@@ -482,7 +481,7 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
   .manifesto h2 { margin-bottom: 25px; font-size: clamp(35px, 9.3vw, 47px); line-height: 1.25; }
   .manifesto-detail { display: block; margin: 0; font-size: 12px; line-height: 1.9; }
   .manifesto-note { max-width: 420px; margin-top: 20px; padding-inline-start: 15px; font-size: 17px; line-height: 1.65; }
-  .manifesto-stamp { inset-inline-end: 18px; bottom: 17px; font-size: 70px; }
+  .manifesto-stamp { inset-inline-end: 18px; bottom: 17px; width: 82px; }
   .collection { padding-block: 76px 65px; }
   .collection-heading { display: block; margin-bottom: 25px; }
   .collection-heading p { margin-top: 15px; font-size: 16px; }
