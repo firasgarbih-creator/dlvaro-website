@@ -686,7 +686,7 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 
 /* Approved architectural signature replaces section 02's image reel. */
 .signature-section { background: var(--ink); border-top: 1px solid var(--rule-dark); }
-.signature-title { max-width: 1080px; margin: 30px 0 56px; font-size: clamp(28px,4vw,54px); line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
+.signature-title { max-width: 1200px; margin: 30px 0 56px; font-size: clamp(28px,4vw,54px); line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
 .signature-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(32px,6vw,88px); align-items: start; }
 .signature-art { position: sticky; top: 32px; }
 .signature-art img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
@@ -790,7 +790,7 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .design-lightbox-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
 .design-position { color: var(--text-warm-soft); font-size: 12px; white-space: nowrap; }
 @media (max-width: 620px) { .designs-grid { grid-template-columns: 1fr; gap: 32px; } .design-card:last-child { grid-column: auto; width: 100%; } .design-card figcaption { font-size: 14px; } .design-lightbox { padding: 12px; } .design-lightbox-toolbar { align-items: flex-start; } .design-lightbox button { padding: 8px 10px; font-size: 12px; } .design-full-image { height: 65vh; height: 65dvh; } }
-@media (min-width: 821px) and (max-width: 1080px) {
+@media (min-width: 821px) and (max-width: 1200px) {
  .site-header { height: 88px; grid-template-columns: 96px 1fr; }
  .header-actions { grid-column: 2; }
  .primary-nav { position: absolute; inset: 88px 0 auto; z-index: 30; height: calc(100dvh - 88px); overflow-y: auto; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 25px; padding: 48px var(--page-pad); background: rgba(8,10,10,.98); opacity: 0; visibility: hidden; transform: translateY(-8px); }
@@ -811,7 +811,7 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .site-header .primary-nav a { color:var(--text-warm); }
 .site-header .primary-nav a[aria-current="page"],.site-header .primary-nav a:hover { color:var(--orange-light); }
 html[dir="rtl"] .site-header .primary-nav { direction:rtl; }
-@media(max-width:1080px) {
+@media(max-width:1200px) {
  .site-header { grid-template-columns:minmax(0,1fr) 76px minmax(0,1fr); gap:12px; }
  .site-header .primary-nav { grid-column:auto; grid-row:auto; align-items:stretch; text-align:right; justify-content:flex-start; gap:25px; }
  .site-header .primary-nav a { text-align:right; }
@@ -826,7 +826,7 @@ html[dir="rtl"] .site-header .primary-nav { direction:rtl; }
 }
 
 /* Anchor navigation to the right edge while retaining a centred brand. */
-@media(min-width:1081px) {
+@media(min-width:1201px) {
  .site-header { padding-inline:24px; }
  html[dir="rtl"] .site-header .primary-nav { justify-content:flex-start; }
 }
@@ -840,7 +840,7 @@ html[dir="rtl"] .site-header .primary-nav { direction:rtl; }
 /* Mirror header navigation and tools with the selected language. */
 html[dir="ltr"] .site-header .primary-nav { grid-column:1; justify-content:flex-start; }
 html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:flex-end; }
-@media(max-width:1080px) {
+@media(max-width:1200px) {
  html[dir="ltr"] .site-header .primary-nav { grid-column:auto; text-align:left; }
  html[dir="ltr"] .site-header .primary-nav a { text-align:left; }
  html[dir="ltr"] .site-header .menu-toggle { right:auto; left:24px; }
@@ -876,7 +876,7 @@ html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:fl
 .watch-description, .watch-page-description { font-size: 15px; line-height: 1.9; }
 .watch-page-specs .visual-note { font-size: 12px; }
 .watch-page-copy h1 small { font-size: 13px; white-space: normal; }
-@media(min-width:1081px) {
+@media(min-width:1201px) {
  .site-header .primary-nav { gap: 10px; }
  .site-header .primary-nav a { font-size: clamp(10px,.86vw,12px); letter-spacing: 0; }
 }
