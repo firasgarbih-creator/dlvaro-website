@@ -752,7 +752,10 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .about-heading blockquote { margin: 28px 0 0; padding-inline-start: 24px; border-inline-start: 2px solid var(--orange); font-size: clamp(24px,2.7vw,38px); line-height: 1.65; }
 .about-emblem { text-align: center; }
 .about-emblem img { width: 100%; height: auto; max-width: 370px; margin-inline: auto; mix-blend-mode: screen; }
-.about-emblem figcaption { direction: ltr; font-family: var(--sans); font-size: 25px; letter-spacing: .22em; margin-top: 20px; }
+.about-emblem figcaption { direction: ltr; font-family: var(--sans); font-size: clamp(34px, 4.2vw, 52px); font-weight: 600; line-height: 1.2; letter-spacing: .12em; margin-top: 10px; color: #c7cbd0; }
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+ .about-emblem figcaption { background: linear-gradient(165deg, #f5f6f7 8%, #c7cbd0 29%, #8d949c 48%, #edf0f3 59%, #b7bec6 78%, #dce0e4 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+}
 .about-principle { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(30px,8vw,120px); border-top: 1px solid var(--rule-dark); }
 .about-principle:nth-of-type(odd) { background: var(--ink-raised); }
 .about-section-heading h2 { font-size: clamp(28px,3.4vw,46px); line-height: 1.5; font-weight: 400; margin-top: 20px; }
