@@ -889,3 +889,6 @@ html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:fl
  .launch-details { gap: 14px 24px; }
  .hero-product { margin-bottom: 12px; }
 }
+
+/* Nickel-silver header lockup: retain the metallic highlights and relief. */
+.site-header .brand img { filter: grayscale(1) sepia(.08) saturate(.4) brightness(1.12) contrast(.94); }
