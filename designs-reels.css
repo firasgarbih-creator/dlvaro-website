@@ -31,3 +31,26 @@ body[data-page="designs"] .page-intro h1 { font-size:clamp(38px,4.6vw,64px); mar
  .atelier-expand { bottom:12px; inset-inline-end:12px; }
 }
 @media(prefers-reduced-motion:reduce) { .design-open { transition:none; } }
+/* Wide, self-playing wave composition. */
+.designs-section { padding-inline:clamp(20px,4vw,64px); }
+.design-reel-controls,.atelier-layout { max-width:1320px; }
+.atelier-layout { grid-template-columns:minmax(0,1fr); gap:22px; }
+.atelier-stage { height:600px; overflow:hidden; isolation:isolate; }
+.atelier-stage::before { content:""; position:absolute; inset:-70px; z-index:-1; background-image:var(--drawing); background-position:center; background-size:cover; filter:blur(40px) brightness(.25) saturate(.6); opacity:.8; animation:ambient-wave 16s ease-in-out infinite alternate; animation-play-state:paused; }
+.atelier-stage>img { width:90%; height:94%; object-fit:contain; filter:drop-shadow(0 15px 25px #0008); animation:drawing-wave 12s ease-in-out infinite; animation-play-state:paused; }
+.wave-running .atelier-stage>img,.wave-running .atelier-stage::before { animation-play-state:running; }
+.atelier-stage::after { content:""; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--orange-light); transform:scaleX(var(--wave-progress,0)); transform-origin:left; opacity:.7; }
+[dir="rtl"] .atelier-stage::after { transform-origin:right; }
+.designs-grid { flex-direction:row; justify-content:center; gap:14px; overflow-x:auto; padding:4px 0 12px; scrollbar-width:thin; }
+.design-card,.design-card:last-child { width:90px; flex:0 0 90px; }
+.design-open img { width:82px; height:78px; }
+.atelier-index { flex:1; }
+@keyframes drawing-wave { 0%,100% { transform:translate3d(-5px,3px,0) rotate(-.45deg) scale(.975); } 50% { transform:translate3d(5px,-5px,0) rotate(.45deg) scale(.995); } }
+@keyframes ambient-wave { from { transform:translate3d(-15px,8px,0) scale(1.04); } to { transform:translate3d(15px,-8px,0) scale(1.12); } }
+@media(max-width:700px) {
+ .atelier-stage { height:min(540px,125vw); }
+ .designs-grid { justify-content:flex-start; gap:8px; }
+ .design-card,.design-card:last-child { width:58px; flex-basis:58px; }
+ .design-open img { width:50px; height:54px; }
+}
+@media(prefers-reduced-motion:reduce) { .atelier-stage>img,.atelier-stage::before { animation:none; } }
