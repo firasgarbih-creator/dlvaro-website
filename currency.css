@@ -1,0 +1,24 @@
+/* Currency selection, shared across the English and Arabic storefront. */
+.currency-toggle,.currency-price-change {color:var(--text-warm);font:500 11px/1.5 var(--sans);background:none;border:0;cursor:pointer;white-space:nowrap;padding:10px 2px;}
+.currency-toggle {direction:ltr;}
+.currency-price-tools {margin:-14px 0 22px;}
+.currency-price-change {padding:2px 0 7px;text-decoration:underline;text-underline-offset:4px;}
+.currency-price-note {max-width:440px;margin:0;color:var(--text-warm-soft);font:400 11px/1.8 var(--sans);}
+.currency-price-note a,.currency-source a {color:inherit;text-decoration:underline;text-underline-offset:3px;}
+.currency-dialog {box-sizing:border-box;width:min(530px,calc(100% - 32px));max-height:calc(100dvh - 40px);margin:auto;padding:28px;background:#111211;color:var(--text-warm);border:1px solid #635644;box-shadow:0 24px 90px #0009;overflow:auto;}
+.currency-dialog::backdrop {background:rgb(0 0 0 / .7);backdrop-filter:blur(5px);}
+.currency-heading {display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.currency-heading h2 {font:500 26px/1.4 var(--sans);margin:0;}
+.currency-close {background:none;border:0;color:var(--text-warm);font-size:30px;cursor:pointer;width:44px;height:44px;}
+.currency-intro,.currency-status,.currency-source {font:400 12px/1.8 var(--sans);color:var(--text-warm-soft);margin:12px 0;}
+.currency-options {display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:22px 0;}
+.currency-options button {display:grid;grid-template-columns:1fr auto;gap:3px 8px;text-align:start;padding:12px;background:#1b1c1a;border:1px solid #39372f;color:var(--text-warm);cursor:pointer;min-height:72px;}
+.currency-options b {font:500 15px/1.4 var(--sans);}
+.currency-options span {grid-column:1;font:400 11px/1.6 var(--sans);}
+.currency-options i {grid-column:2;grid-row:1/3;align-self:center;font-style:normal;visibility:hidden;color:var(--orange);}
+.currency-options button[aria-pressed="true"] {border-color:var(--orange);background:#2b2118;}
+.currency-options button[aria-pressed="true"] i {visibility:visible;}
+.currency-options button:hover {border-color:var(--text-warm);}
+.currency-toggle:focus-visible,.currency-price-change:focus-visible,.currency-dialog button:focus-visible {outline:2px solid var(--orange);outline-offset:3px;}
+@media(max-width:600px) {.site-header .header-actions{gap:6px;}.currency-toggle{font-size:10px;padding-inline:0;}.site-header .language-toggle{padding-inline-start:5px;}.currency-dialog{padding:20px;}}
+@media(max-width:360px) {.site-header{column-gap:6px;}.site-header .header-actions{gap:4px;}.site-header .account-link-header svg{width:18px;}.site-header .language-toggle{padding-inline-start:3px;}}
