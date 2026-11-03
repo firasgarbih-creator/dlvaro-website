@@ -30,6 +30,10 @@ Object.assign(copy.ar, {"navAbout": "من نحن", "aboutMeta": "تعرّفوا 
 Object.assign(copy.en, {"designCaption1": "Case profile and edition engraving", "designCaption2": "Case structure", "designCaption3": "Case studies from multiple angles", "designCaption4": "Case and emblem crown", "designCaption5": "Crown-side perspective", "designCaption6": "DV-01 caseback", "designCaption7": "Crown-side profile", "navDesigns": "Designs", "designsMeta": "Explore six DLVARO design drawings of the watch case, crown, and caseback.", "designsIntro": "A closer look at form and detail through six DLVARO design drawings.", "designsGallery": "Design gallery", "designsOpen": "View image", "designsClose": "Close image", "designsPrevious": "Previous design", "designsNext": "Next design"});
 Object.assign(copy.ar, {"designCaption1": "العلبة من الجانب ونقش الإصدار", "designCaption2": "بنية العلبة", "designCaption3": "دراسات العلبة من زوايا متعددة", "designCaption4": "العلبة والتاج بشعار العلامة", "designCaption5": "منظور من جهة التاج", "designCaption6": "الغطاء الخلفي لـ DV-01", "designCaption7": "منظر جانبي من جهة التاج", "navDesigns": "التصاميم", "designsMeta": "استكشفوا ست صور لتصاميم DLVARO تعرض العلبة والتاج والغطاء الخلفي للساعة.", "designsIntro": "نظرة أقرب إلى الشكل والتفاصيل من خلال تصاميم DLVARO", "designsGallery": "معرض التصاميم", "designsOpen": "عرض الصورة", "designsClose": "إغلاق الصورة", "designsPrevious": "التصميم السابق", "designsNext": "التصميم التالي"});
 
+// Approved DV-01 launch details. Dates use month names in both languages.
+Object.assign(copy.en, {"priceLabel": "Price", "launchLabel": "Launch date", "launchDate": "1 June 2027", "watchPrice": "SAR 8,500", "editionSummary": "Limited edition of 50 numbered pieces", "watchCta": "Receive launch updates", "interestHelp": "Create an account and select product launch emails to receive updates.", "deliveryNote": "Delivery timing will be announced separately.", "visualNote": "Design visualization.", "heroCaption": "DV-01 · Design visualization", "comingSoon": "Launching 1 June 2027", "contactStatus": "DV-01 Limited Edition · Launching 1 June 2027", "metaDescription": "Discover DLVARO DV-01: a limited edition of 50 numbered pieces. SAR 8,500. Launching 1 June 2027.", "watchMetaDescription": "DLVARO DV-01: Sellita SW200-1, sapphire crystal and 50 numbered pieces. SAR 8,500. Launching 1 June 2027.", "productsMeta": "Explore DLVARO DV-01. Limited to 50 numbered pieces. SAR 8,500. Launching 1 June 2027."});
+Object.assign(copy.ar, {"priceLabel": "السعر", "launchLabel": "موعد الإطلاق", "launchDate": "١ يونيو ٢٠٢٧", "watchPrice": "٨٬٥٠٠ ريال سعودي", "editionSummary": "إصدار محدود من ٥٠ قطعة مرقّمة", "watchCta": "تابعوا أخبار الإطلاق", "interestHelp": "أنشئوا حسابًا واختاروا رسائل إطلاق المنتجات لتصلكم المستجدات.", "deliveryNote": "سيُعلن موعد التسليم بشكل مستقل.", "visualNote": "تصوّر بصري للتصميم.", "heroCaption": "DV-01 · تصوّر بصري للتصميم", "comingSoon": "الإطلاق في ١ يونيو ٢٠٢٧", "contactStatus": "DV-01 · إصدار محدود · الإطلاق في ١ يونيو ٢٠٢٧", "metaDescription": "اكتشفوا DLVARO DV-01: إصدار محدود من ٥٠ قطعة مرقّمة، بسعر ٨٬٥٠٠ ريال سعودي. الإطلاق في ١ يونيو ٢٠٢٧.", "watchMetaDescription": "DLVARO DV-01 بحركة Sellita SW200-1 وكريستال سافاير. ٥٠ قطعة مرقّمة بسعر ٨٬٥٠٠ ريال سعودي. الإطلاق في ١ يونيو ٢٠٢٧.", "productsMeta": "اكتشفوا DLVARO DV-01. إصدار محدود من ٥٠ قطعة مرقّمة بسعر ٨٬٥٠٠ ريال سعودي. الإطلاق في ١ يونيو ٢٠٢٧."});
+
 const queryLocale = new URLSearchParams(window.location.search).get("lang");
 let locale = ["en", "ar"].includes(queryLocale) ? queryLocale : (localStorage.getItem("dlvaro-locale") || "en");
 let watchData;
@@ -173,7 +177,7 @@ function renderWatchData() {
     const path = node.dataset.watch.split(".");
     let value = watchData;
     for (const key of path) value = value?.[key];
-    if (path[0] === "availability") value = value === "coming-soon" ? (locale === "ar" ? "قريبًا" : "Coming soon") : value;
+    if (path[0] === "availability" && value === "coming-soon") value = copy[locale].comingSoon;
     else if (value && typeof value === "object") value = value[locale];
     if (value !== undefined) node.textContent = value;
   });
@@ -209,7 +213,7 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   document.querySelectorAll(".reveal").forEach((node) => node.classList.add("is-visible"));
 }
 document.getElementById("year").textContent = new Date().getFullYear();
-fetch("data/watch.json").then((r) => r.json()).then((data) => { watchData = data; renderWatchData(); }).catch(() => {});
+fetch("data/watch.json?v=launch-june-2027").then((r) => r.json()).then((data) => { watchData = data; renderWatchData(); }).catch(() => {});
 applyLocale(locale);
 initBrandSplash();
 initGalleryReel();

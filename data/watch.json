@@ -8,10 +8,28 @@
     "ar": "يجمع أول إبداعات DLVARO بين علبة فولاذية ذات حضور نحتي، وميناء هندسي، وسوار برتقالي مركّب. تعبير تصميمي عن فكرة العلامة التأسيسية."
   },
   "movement": "Sellita SW200-1",
-  "dateDisplay": { "en": "Date display", "ar": "عرض التاريخ" },
-  "case": { "en": "Stainless steel · 38 mm", "ar": "ستانلس ستيل · 38 مم" },
-  "crystal": { "en": "Sapphire", "ar": "سافاير" },
+  "dateDisplay": {
+    "en": "Date display",
+    "ar": "عرض التاريخ"
+  },
+  "case": {
+    "en": "Stainless steel · 38 mm",
+    "ar": "ستانلس ستيل · 38 مم"
+  },
+  "crystal": {
+    "en": "Sapphire",
+    "ar": "سافاير"
+  },
   "waterResistance": "100 m",
-  "strap": { "en": "Orange rubber and fabric blend", "ar": "مزيج من المطاط والقماش البرتقالي" },
-  "dimensions": { "en": "38 × 47 × 8.45 mm", "ar": "38 × 47 × 8.45 مم" }
+  "strap": {
+    "en": "Orange rubber and fabric blend",
+    "ar": "مزيج من المطاط والقماش البرتقالي"
+  },
+  "dimensions": {
+    "en": "38 × 47 × 8.45 mm",
+    "ar": "38 × 47 × 8.45 مم"
+  },
+  "price": 8500,
+  "currency": "SAR",
+  "launchDate": "2027-06-01"
 }
