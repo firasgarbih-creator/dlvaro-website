@@ -55,6 +55,6 @@ body[data-page="designs"] .page-intro h1 { font-size:clamp(38px,4.6vw,64px); mar
 }
 @media(prefers-reduced-motion:reduce) { .atelier-stage>img,.atelier-stage::before { animation:none; } }
 
-/* Warm neutral mat around the complete drawing. */
-.atelier-stage { background:#e8dfcf; }
+/* Black surround around the complete drawing. */
+.atelier-stage { background:#000; }
 .atelier-stage::before { display:none; }
