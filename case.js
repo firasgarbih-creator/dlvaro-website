@@ -53,8 +53,6 @@
     }, {passive:true});
   }
   document.addEventListener('dlvaro:locale', () => {
-    document.querySelectorAll('.case-prev').forEach(button => { button.textContent = locale === 'ar' ? '→' : '←'; });
-    document.querySelectorAll('.case-next').forEach(button => { button.textContent = locale === 'ar' ? '←' : '→'; });
     show(active, false);
   });
   document.dispatchEvent(new CustomEvent('dlvaro:locale'));

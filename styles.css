@@ -892,3 +892,9 @@ html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:fl
 
 /* Nickel-silver header lockup: retain the metallic highlights and relief. */
 .site-header .brand img { filter: grayscale(1) sepia(.08) saturate(.4) brightness(1.12) contrast(.94); }
+
+/* Vector arrows avoid platform emoji rendering and retain the brand colour. */
+.direction-arrow { display:inline-block; width:1em; height:1em; min-width:1em; flex-shrink:0; vertical-align:-.12em; color:var(--orange-light); fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.button-solid .direction-arrow { color:var(--text-warm); }
+.case-controls .direction-arrow { width:20px; height:20px; }
+html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
