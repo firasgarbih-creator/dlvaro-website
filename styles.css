@@ -824,3 +824,9 @@ html[dir="rtl"] .site-header .primary-nav { direction:rtl; }
  .site-header .header-actions { gap:12px; }
  .site-header .menu-toggle { right:18px; }
 }
+
+/* Anchor navigation to the right edge while retaining a centred brand. */
+@media(min-width:1081px) {
+ .site-header { padding-inline:24px; }
+ html[dir="rtl"] .site-header .primary-nav { justify-content:flex-start; }
+}
