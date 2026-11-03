@@ -763,3 +763,37 @@ html[dir="rtl"] .watch-information { align-items: flex-start; }
 .about-next { display: flex; flex-wrap: wrap; gap: 24px; border-top: 1px solid var(--rule-dark); }
 @media (min-width: 821px) and (max-width: 1350px) { .primary-nav { gap: 12px; } .primary-nav a { font-size: 9px; letter-spacing: .02em; } .header-actions .inquire-link { display: none; } }
 @media (max-width: 820px) { .about-hero { padding-top: 132px; grid-template-columns: 1fr; } .about-emblem { max-width: 240px; width: 100%; margin-inline: auto; } .about-principle { grid-template-columns: 1fr; } .about-body p { font-size: 15px; } .about-heading blockquote { padding-inline-start: 18px; } }
+
+/* Full, uncropped design drawings and accessible image viewer. */
+.designs-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(30px,4vw,64px); }
+.design-open { display: block; position: relative; background: #171a19; }
+.design-open img { width: 100%; height: auto; display: block; }
+.design-zoom { position: absolute; inset-inline-end: 16px; bottom: 16px; color: #fff; background: rgba(8,10,10,.88); border: 1px solid rgba(255,255,255,.3); padding: 9px 16px; font-size: 12px; }
+.design-open:hover .design-zoom { border-color: var(--orange-light); }
+.design-card figcaption { display: flex; align-items: baseline; gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--rule-dark); font-size: 16px; }
+.design-card:last-child { grid-column: 1 / -1; width: calc(50% - clamp(30px,4vw,64px) / 2); justify-self: center; }
+.design-lightbox-open { overflow: hidden; }
+.design-lightbox { width: min(1100px,96vw); max-width: 96vw; max-height: 96vh; max-height: 96dvh; padding: 18px; border: 1px solid var(--rule-dark); background: var(--ink); color: var(--paper-soft); }
+.design-lightbox::backdrop { background: rgba(0,0,0,.93); }
+.design-lightbox-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 12px; }
+.design-lightbox-toolbar p { font-size: 14px; line-height: 1.8; }
+.design-lightbox button { font: inherit; padding: 9px 16px; min-height: 44px; border: 1px solid var(--rule-dark); background: var(--ink-raised); color: var(--paper-soft); cursor: pointer; }
+.design-lightbox button:hover { border-color: var(--orange-light); }
+.design-lightbox button:disabled { opacity: .35; cursor: default; }
+.design-close { flex-shrink: 0; }
+.design-full-image { width: 100%; height: min(72vh,1100px); height: min(72dvh,1100px); object-fit: contain; }
+.design-lightbox-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.design-position { color: var(--silver); font-size: 12px; white-space: nowrap; }
+@media (max-width: 620px) { .designs-grid { grid-template-columns: 1fr; gap: 32px; } .design-card:last-child { grid-column: auto; width: 100%; } .design-card figcaption { font-size: 14px; } .design-lightbox { padding: 12px; } .design-lightbox-toolbar { align-items: flex-start; } .design-lightbox button { padding: 8px 10px; font-size: 12px; } .design-full-image { height: 65vh; height: 65dvh; } }
+@media (min-width: 821px) and (max-width: 1080px) {
+ .site-header { height: 88px; grid-template-columns: 96px 1fr; }
+ .header-actions { grid-column: 2; }
+ .primary-nav { position: absolute; inset: 88px 0 auto; z-index: 30; height: calc(100dvh - 88px); overflow-y: auto; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 25px; padding: 48px var(--page-pad); background: rgba(8,10,10,.98); opacity: 0; visibility: hidden; transform: translateY(-8px); }
+ .primary-nav a { font-size: 30px; line-height: 1.5; letter-spacing: 0; text-transform: none; }
+ .menu-open .primary-nav { opacity: 1; visibility: visible; transform: translateY(0); }
+ .menu-toggle { width: 30px; height: 30px; padding: 5px; display: flex; flex-direction: column; justify-content: center; gap: 6px; border: 0; background: transparent; }
+ .menu-toggle span { width: 20px; height: 1px; background: var(--paper-soft); }
+ .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+ .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+ .brand, .brand img { height: 84px; }
+}
