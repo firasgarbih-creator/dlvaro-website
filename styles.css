@@ -836,3 +836,15 @@ html[dir="rtl"] .site-header .primary-nav { direction:rtl; }
 .header-social .social-icon { color:var(--text-warm); }
 .social-links, .social-links a { color:var(--text-warm); }
 .customer-account input::placeholder { color:var(--text-warm-soft); opacity:1; }
+
+/* Mirror header navigation and tools with the selected language. */
+html[dir="ltr"] .site-header .primary-nav { grid-column:1; justify-content:flex-start; }
+html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:flex-end; }
+@media(max-width:1080px) {
+ html[dir="ltr"] .site-header .primary-nav { grid-column:auto; text-align:left; }
+ html[dir="ltr"] .site-header .primary-nav a { text-align:left; }
+ html[dir="ltr"] .site-header .menu-toggle { right:auto; left:24px; }
+}
+@media(max-width:600px) {
+ html[dir="ltr"] .site-header .menu-toggle { left:18px; }
+}
