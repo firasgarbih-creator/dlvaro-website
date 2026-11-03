@@ -35,8 +35,8 @@
   stage.href=links[active].href; hero.src=stage.href; hero.alt=source.alt;stage.style.setProperty("--drawing",`url("${stage.href}")`);
   full.src=stage.href; full.alt=source.alt;
   dialog.querySelector('#design-lightbox-caption').textContent=source.alt;
-  document.querySelector('.atelier-index').textContent=`${String(active+1).padStart(2,'0')} / 07`;
-  dialog.querySelector('.design-position').textContent=`${active+1} / 7`;
+  document.querySelector('.atelier-index').textContent=`${String(active+1).padStart(2,'0')} / ${String(links.length).padStart(2,'0')}`;
+  dialog.querySelector('.design-position').textContent=`${active+1} / ${links.length}`;
   links.forEach((link,i)=>link.setAttribute('aria-current',String(i===active)));
   back.disabled=modalBack.disabled=active===0;
   next.disabled=modalNext.disabled=active===links.length-1;
