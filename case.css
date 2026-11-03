@@ -4,7 +4,7 @@
 .case-intro .section-kicker { display: flex; gap: 12px; align-items: center; }
 .case-accent { width: 28px; height: 1px; background: var(--orange); }
 .case-intro h1 { text-align: start; font-family: var(--sans); font-size: clamp(72px,9vw,136px); font-weight: 400; letter-spacing: -.05em; line-height: 1; margin: 30px 0; }
-html[dir="rtl"] .case-intro h1 { text-align: right; }
+html[dir="rtl"] .case-intro h1 { text-align: right; font-family: var(--arabic-sans); letter-spacing: 0; }
 .case-intro h2 { font-size: clamp(22px,2.5vw,34px); font-weight: 400; line-height: 1.5; margin: 0 0 18px; }
 .case-description { color: var(--text-warm-soft); font-size: 15px; line-height: 1.9; margin-bottom: 30px; }
 .case-gallery { min-width: 0; }
