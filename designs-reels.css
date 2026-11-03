@@ -1,0 +1,16 @@
+/* Compact, swipeable design reels; original drawings remain uncropped. */
+.designs-section { padding-top: 0; }
+.design-reel-controls { display:flex; justify-content:flex-end; gap:10px; margin-bottom:20px; }
+.design-reel-controls button { width:44px; height:44px; border:1px solid var(--rule-dark); color:var(--paper-soft); background:var(--ink-raised); font-size:22px; cursor:pointer; }
+.design-reel-controls button:disabled { opacity:.3; cursor:default; }
+.design-reel-controls button:hover:not(:disabled) { border-color:var(--orange-light); }
+[dir="rtl"] .design-reel-controls span { display:block; transform:scaleX(-1); }
+.designs-grid { display:flex; gap:18px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; padding:4px 0 20px; scrollbar-width:thin; scrollbar-color:var(--orange-light) var(--ink-raised); }
+.design-card, .design-card:last-child { flex:0 0 260px; width:260px; margin:0; scroll-snap-align:start; }
+.design-open { aspect-ratio:9 / 14; overflow:hidden; border:1px solid var(--rule-dark); border-radius:12px; background:linear-gradient(150deg,#292723,#101211); }
+.design-open img { width:100%; height:100%; object-fit:contain; }
+.design-zoom { bottom:12px; inset-inline-end:12px; font-size:10px; padding:7px 10px; }
+.design-lightbox-toolbar { justify-content:flex-end; }
+.design-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+.designs-grid:focus-visible, .design-open:focus-visible, .design-reel-controls button:focus-visible { outline:2px solid var(--orange-light); outline-offset:2px; }
+@media(max-width:620px) { .design-card, .design-card:last-child { flex-basis:230px; width:230px; } }

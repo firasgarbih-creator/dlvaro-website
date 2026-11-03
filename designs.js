@@ -1,4 +1,31 @@
 (() => {
+  const rail = document.querySelector('.designs-grid');
+  const back = document.querySelector('.reel-prev');
+  const forward = document.querySelector('.reel-next');
+  if (rail && back && forward) {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const distance = Math.abs(rail.scrollLeft);
+      back.disabled = distance < 2;
+      forward.disabled = distance >= rail.scrollWidth - rail.clientWidth - 2;
+    };
+    const move = direction => rail.scrollBy({
+      left: direction * (document.documentElement.dir === 'rtl' ? -1 : 1) * (rail.querySelector('.design-card').getBoundingClientRect().width + 18),
+      behavior: reduced.matches ? 'instant' : 'smooth'
+    });
+    back.addEventListener('click', () => move(-1));
+    forward.addEventListener('click', () => move(1));
+    rail.addEventListener('scroll', update, {passive:true});
+    rail.addEventListener('keydown', event => {
+      if (event.target !== rail || !['ArrowLeft','ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      move((event.key === 'ArrowRight') !== (document.documentElement.dir === 'rtl') ? 1 : -1);
+    });
+    new ResizeObserver(update).observe(rail);
+    document.addEventListener('dlvaro:locale', () => requestAnimationFrame(update));
+    update();
+  }
+
   const dialog = document.querySelector('.design-lightbox');
   const links = [...document.querySelectorAll('.design-open')];
   if (!dialog || !links.length || typeof dialog.showModal !== 'function') return;
