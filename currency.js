@@ -58,8 +58,11 @@
     const button = document.createElement('button'); button.type = 'button'; button.className = 'currency-price-change';
     button.addEventListener('click', open); wrapper.append(button);
     const note = document.createElement('p'); note.className = 'currency-price-note'; note.setAttribute('role', 'status');
-    wrapper.append(note); node.closest('.launch-details').after(wrapper);
-    return { button, note };
+    const details = document.createElement('details'); details.className = 'currency-details';
+    const summary = document.createElement('summary'); details.append(summary);
+    const information = document.createElement('p'); information.className = 'currency-detail-copy'; details.append(information);
+    wrapper.append(details, note); node.closest('.launch-details').after(wrapper);
+    return { button, note, details, summary, information };
   });
   function open() { render(); dialog.showModal(); ensureRates(); }
   trigger.addEventListener('click', open);
@@ -90,13 +93,18 @@
         failed ? text('Conversion unavailable. Showing the official SAR price. Please try again later.', 'التحويل غير متاح حاليًا. يُعرض السعر المعتمد بالريال السعودي. يرجى المحاولة لاحقًا.') :
         text('Loading exchange rates… The official SAR price is shown meanwhile.', 'جارٍ تحميل أسعار الصرف… يُعرض السعر المعتمد بالريال السعودي مؤقتًا.');
     }
-    notes.forEach(({ button, note }) => {
+    notes.forEach(({ button, note, details, summary, information }) => {
       button.textContent = text('Currency · ', 'العملة · ') + selected + ' ⌄';
-      note.textContent = message; note.hidden = !message;
+      details.hidden = !converted;
+      if (!converted) details.open = false;
+      summary.textContent = text('Approximate · Details', 'تقريبي · تفاصيل التحويل');
+      note.textContent = converted ? '' : message;
+      note.hidden = !note.textContent;
+      information.textContent = converted ? message : '';
       if (converted) {
         const link = document.createElement('a'); link.href = 'https://www.exchangerate-api.com';
         link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = 'Rates By Exchange Rate API';
-        note.append(document.createElement('br'), link);
+        information.append(document.createElement('br'), link);
       }
     });
     status.textContent = message || (rates ? text('Rates dated ', 'أسعار الصرف بتاريخ ') + date : '');

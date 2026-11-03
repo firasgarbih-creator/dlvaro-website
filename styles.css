@@ -898,3 +898,17 @@ html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:fl
 .button-solid .direction-arrow { color:var(--text-warm); }
 .case-controls .direction-arrow { width:20px; height:20px; }
 html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
+
+/* Comfortable supporting copy on phones, without enlarging the desktop layout. */
+@media(max-width:620px) {
+ .interest-help,.delivery-note,.edition-summary,.product-visual-note,
+ .hero-caption,.watch-page-specs .visual-note,.accessory-photo figcaption,
+ .product-display figcaption,.case-page .case-note { font-size:14px; line-height:1.8; }
+ .launch-details dt,.hero .hero-technical span,.watch-specs span { font-size:13px; line-height:1.7; }
+ .hero .hero-technical strong,.watch-specs strong,.watch-page-specs .watch-specs strong { font-size:14px; line-height:1.7; }
+ .eyebrow,.section-kicker,.watch-topline,.contact-top > p,.hero-bottom { font-size:12px; line-height:1.7; letter-spacing:.025em; }
+ .text-link,.button-outline,.button-solid,.watch-page-link,.section-card-cta { font-size:13px; line-height:1.7; }
+ .site-footer,.footer-map,.watch-page-status,.watch-breadcrumb { font-size:13px; line-height:1.8; }
+ .philosophy-copy>p,.story-text,.manifesto-detail { font-size:15px; line-height:1.85; }
+ .case-page .case-enlarge,.case-page .case-lightbox-top,.case-page .case-close { font-size:13px; }
+}
