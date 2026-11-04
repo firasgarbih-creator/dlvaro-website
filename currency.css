@@ -43,3 +43,10 @@ html[dir="rtl"] { --currency-font:var(--arabic-sans); }
  .currency-options { gap:8px; margin-block:16px; }
  .currency-options button { padding:12px 10px; }
 }
+
+/* Isolate symbols and digits so Arabic and English keep the same price order. */
+.currency-symbol { display:inline-block; white-space:nowrap; vertical-align:baseline; }
+.currency-glyph { display:inline-block; height:1em; width:auto; min-height:12px; vertical-align:-.12em; }
+.currency-amount { display:inline-flex; direction:ltr; unicode-bidi:isolate; align-items:baseline; gap:.24em; white-space:nowrap; }
+.currency-toggle { font-size:14px; min-width:30px; }
+.currency-options b { font-size:21px; }
