@@ -1,4 +1,4 @@
-/* Display currencies only. The approved commercial price remains in SAR. */
+/* Display currencies only. The approved commercial price is USD 2,300. */
 (() => {
   'use strict';
   const currencies = [
@@ -15,21 +15,21 @@
   const read = key => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const supported = code => currencies.some(row => row[0] === code);
-  let selected = supported(read('dlvaro-currency')) ? read('dlvaro-currency') : 'SAR';
-  let product = { price: 8500, currency: 'SAR' };
+  let selected = supported(read('dlvaro-currency-usd-v1')) ? read('dlvaro-currency-usd-v1') : 'USD';
+  let product = { price: 2300, currency: 'USD' };
   let rates = null, request = null, failed = false;
   const ar = () => document.documentElement.lang === 'ar';
   const text = (en, arabic) => ar() ? arabic : en;
   const amount = (value, code) => new Intl.NumberFormat(ar() ? 'ar-SA' : 'en-US', {
-    style: 'currency', currency: code, currencyDisplay: 'code', minimumFractionDigits: code === 'SAR' ? 0 : 2,
+    style: 'currency', currency: code, currencyDisplay: 'code', minimumFractionDigits: code === 'USD' ? 0 : 2,
     maximumFractionDigits: 2
   }).format(value);
-  const valid = data => data && data.result === 'success' && data.base_code === 'SAR' &&
+  const valid = data => data && data.result === 'success' && data.base_code === 'USD' &&
     Number.isFinite(data.time_last_update_unix) && data.time_last_update_unix * 1000 <= Date.now() + 3600000 &&
     Date.now() - data.time_last_update_unix * 1000 < 48 * 3600000 &&
     Number.isFinite(data.time_next_update_unix) &&
-    currencies.every(([code]) => Number.isFinite(data.rates?.[code]) && data.rates[code] > 0) && data.rates.SAR === 1;
-  try { const cached = JSON.parse(read('dlvaro-exchange-rates')); if (valid(cached)) rates = cached; } catch (_) {}
+    currencies.every(([code]) => Number.isFinite(data.rates?.[code]) && data.rates[code] > 0) && data.rates.USD === 1;
+  try { const cached = JSON.parse(read('dlvaro-exchange-rates-usd-v1')); if (valid(cached)) rates = cached; } catch (_) {}
 
   const trigger = document.createElement('button');
   trigger.className = 'currency-toggle'; trigger.type = 'button';
@@ -47,7 +47,7 @@
     button.innerHTML = '<b dir="ltr"></b><span></span><i aria-hidden="true">✓</i>';
     button.querySelector('b').textContent = code;
     button.addEventListener('click', () => {
-      selected = code; save('dlvaro-currency', code); failed = false; render();
+      selected = code; save('dlvaro-currency-usd-v1', code); failed = false; render();
       dialog.close(); ensureRates();
     });
     list.append(button);
@@ -79,19 +79,19 @@
     trigger.setAttribute('aria-label', text('Select currency: ', 'اختيار العملة: ') + selected);
     dialog.querySelector('h2').textContent = text('Select currency', 'اختر العملة');
     dialog.querySelector('.currency-close').setAttribute('aria-label', text('Close', 'إغلاق'));
-    dialog.querySelector('.currency-intro').textContent = text('The official price is in SAR. Other currencies are approximate conversions for reference.', 'السعر المعتمد بالريال السعودي. أسعار العملات الأخرى تحويلات تقديرية للاطلاع.');
+    dialog.querySelector('.currency-intro').textContent = text('The official price is in USD. Other currencies are approximate conversions for reference.', 'السعر المعتمد بالدولار الأمريكي. أسعار العملات الأخرى تحويلات تقديرية للاطلاع.');
     list.querySelectorAll('button').forEach((button, i) => {
       button.querySelector('span').textContent = currencies[i][ar() ? 2 : 1];
       button.setAttribute('aria-pressed', String(button.dataset.currency === selected));
     });
-    const converted = selected !== 'SAR' && rates;
-    priceNodes.forEach(node => { node.textContent = (converted ? '≈ ' : '') + amount(product.price * (converted ? rates.rates[selected] : 1), converted ? selected : 'SAR'); });
+    const converted = selected !== 'USD' && rates;
+    priceNodes.forEach(node => { node.textContent = (converted ? '≈ ' : '') + amount(product.price * (converted ? rates.rates[selected] : 1), converted ? selected : 'USD'); });
     const date = rates ? new Intl.DateTimeFormat(ar() ? 'ar-SA-u-ca-gregory' : 'en-GB', {dateStyle:'medium',timeZone:'UTC'}).format(new Date(rates.time_last_update_unix * 1000)) : '';
     let message = '';
-    if (selected !== 'SAR') {
-      message = rates ? text('Approximate · Official price: ', 'تقريبي · السعر المعتمد: ') + amount(product.price, 'SAR') + text(' · Rates dated ', ' · أسعار الصرف بتاريخ ') + date :
-        failed ? text('Conversion unavailable. Showing the official SAR price. Please try again later.', 'التحويل غير متاح حاليًا. يُعرض السعر المعتمد بالريال السعودي. يرجى المحاولة لاحقًا.') :
-        text('Loading exchange rates… The official SAR price is shown meanwhile.', 'جارٍ تحميل أسعار الصرف… يُعرض السعر المعتمد بالريال السعودي مؤقتًا.');
+    if (selected !== 'USD') {
+      message = rates ? text('Approximate · Official price: ', 'تقريبي · السعر المعتمد: ') + amount(product.price, 'USD') + text(' · Rates dated ', ' · أسعار الصرف بتاريخ ') + date :
+        failed ? text('Conversion unavailable. Showing the official USD price. Please try again later.', 'التحويل غير متاح حاليًا. يُعرض السعر المعتمد بالدولار الأمريكي. يرجى المحاولة لاحقًا.') :
+        text('Loading exchange rates… The official USD price is shown meanwhile.', 'جارٍ تحميل أسعار الصرف… يُعرض السعر المعتمد بالدولار الأمريكي مؤقتًا.');
     }
     notes.forEach(({ button, note, details, summary, information }) => {
       button.textContent = text('Currency · ', 'العملة · ') + selected + ' ⌄';
@@ -110,23 +110,23 @@
     status.textContent = message || (rates ? text('Rates dated ', 'أسعار الصرف بتاريخ ') + date : '');
   }
   async function ensureRates() {
-    if (selected === 'SAR' || request || (rates && Date.now() < rates.time_next_update_unix * 1000)) return;
+    if (selected === 'USD' || request || (rates && Date.now() < rates.time_next_update_unix * 1000)) return;
     failed = false;
     request = (async () => {
       const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), 10000);
       try {
-        const response = await fetch('https://open.er-api.com/v6/latest/SAR', {signal:controller.signal, credentials:'omit', referrerPolicy:'no-referrer'});
+        const response = await fetch('https://open.er-api.com/v6/latest/USD', {signal:controller.signal, credentials:'omit', referrerPolicy:'no-referrer'});
         if (!response.ok) throw new Error('Rates unavailable');
         const data = await response.json(); if (!valid(data)) throw new Error('Invalid rates');
-        rates = data; save('dlvaro-exchange-rates', JSON.stringify(data));
+        rates = data; save('dlvaro-exchange-rates-usd-v1', JSON.stringify(data));
       } catch (_) { failed = true; }
       finally { clearTimeout(timer); request = null; render(); }
     })();
     await request;
   }
   document.addEventListener('dlvaro:locale', render);
-  fetch('data/watch.json?v=launch-june-2027').then(r => r.json()).then(data => {
-    if (Number.isFinite(data.price) && data.price > 0 && data.currency === 'SAR') product = data;
+  fetch('data/watch.json?v=usd-2300-1').then(r => r.json()).then(data => {
+    if (Number.isFinite(data.price) && data.price > 0 && data.currency === 'USD') product = data;
     render();
   }).catch(() => {});
   render(); ensureRates();
