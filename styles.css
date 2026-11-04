@@ -912,3 +912,9 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
  .philosophy-copy>p,.story-text,.manifesto-detail { font-size:15px; line-height:1.85; }
  .case-page .case-enlarge,.case-page .case-lightbox-top,.case-page .case-close { font-size:13px; }
 }
+
+/* Additional approved strap colours. */
+.swatch-burgundy { background: #790d27; }
+.swatch-blue { background: #123f70; }
+.swatch-brown { background: #855137; }
+.strap-colour { font-size: 14px; min-height: 44px; }

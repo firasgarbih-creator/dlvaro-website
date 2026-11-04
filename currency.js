@@ -1,4 +1,4 @@
-/* Display currencies only. The approved commercial price is USD 2,300. */
+/* Display currencies only. Approved USD prices: watch 2,300; strap 150. */
 (() => {
   'use strict';
   const currencies = [
@@ -16,7 +16,8 @@
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const supported = code => currencies.some(row => row[0] === code);
   let selected = supported(read('dlvaro-currency-usd-v1')) ? read('dlvaro-currency-usd-v1') : 'USD';
-  let product = { price: 2300, currency: 'USD' };
+  const isStrap = document.body.dataset.page === 'accessories';
+  let product = { price: isStrap ? 150 : 2300, currency: 'USD' };
   let rates = null, request = null, failed = false;
   const ar = () => document.documentElement.lang === 'ar';
   const text = (en, arabic) => ar() ? arabic : en;
@@ -125,7 +126,7 @@
     await request;
   }
   document.addEventListener('dlvaro:locale', render);
-  fetch('data/watch.json?v=usd-2300-1').then(r => r.json()).then(data => {
+  if (!isStrap) fetch('data/watch.json?v=usd-2300-1').then(r => r.json()).then(data => {
     if (Number.isFinite(data.price) && data.price > 0 && data.currency === 'USD') product = data;
     render();
   }).catch(() => {});
