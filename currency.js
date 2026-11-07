@@ -27,6 +27,7 @@
   const text = (en, arabic) => ar() ? arabic : en;
   const amount = (value, code) => {
     const digits = new Intl.NumberFormat(ar() ? 'ar-SA' : 'en-US', {
+      numberingSystem: ar() ? 'arab' : 'latn', useGrouping: true,
       minimumFractionDigits: code === 'USD' ? 0 : 2, maximumFractionDigits: 2
     }).format(value);
     return '<span class="currency-amount" role="img" aria-label="' + digits + ' ' + currencyName(code) + '">' +
@@ -135,7 +136,7 @@
     await request;
   }
   document.addEventListener('dlvaro:locale', render);
-  if (!isStrap) fetch('data/watch.json?v=usd-2300-1').then(r => r.json()).then(data => {
+  if (!isStrap) fetch('data/watch.json?v=water-100atm-1').then(r => r.json()).then(data => {
     if (Number.isFinite(data.price) && data.price > 0 && data.currency === 'USD') product = data;
     render();
   }).catch(() => {});

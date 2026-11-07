@@ -21,7 +21,10 @@
       return;
     }
     const strap = product === 'strap';
-    const price = strap ? '$150' : '$2,300';
+    const value = new Intl.NumberFormat(ar() ? 'ar-SA' : 'en-US', {
+      numberingSystem: ar() ? 'arab' : 'latn', useGrouping: true, maximumFractionDigits: 0
+    }).format(strap ? 150 : 2300);
+    const price = ar() ? value + ' $' : '$' + value;
     const title = strap ? t('DLVARO · 20 mm strap','DLVARO · سوار ٢٠ مم') : 'DLVARO DV-01';
     const selected = colours[colour][ar()?1:0];
     const accepted = root.querySelector('#preorder-consent')?.checked || false;
