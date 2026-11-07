@@ -45,5 +45,11 @@
     });
   }
   document.addEventListener('dlvaro:locale', render);
+  // Browsers can restore checkbox state when returning from PayPal.
+  window.addEventListener('pageshow', () => {
+    const consent = root.querySelector('#preorder-consent');
+    const button = root.querySelector('.checkout-pay');
+    if (consent && button) button.disabled = !consent.checked;
+  });
   render();
 })();
