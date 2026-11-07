@@ -40,6 +40,9 @@ Object.assign(copy.ar, {"navCase": "العلبة", "caseMeta": "استكشفوا
 Object.assign(copy.en, {"caseCrownTitle": "The crown. The signature.", "caseCrownAlt": "Close-up design view of the DV-01 crown with the DLVARO emblem"});
 Object.assign(copy.ar, {"caseCrownTitle": "التاج. توقيع العلامة.", "caseCrownAlt": "لقطة تصميمية مقرّبة لتاج DV-01 وشعار DLVARO"});
 
+Object.assign(copy.en, {"watchCta": "Pre-order with PayPal", "interestHelp": "Full payment now · Tax included · Free worldwide shipping.", "deliveryNote": "Shipping starts 1 June 2027. This is the dispatch date, not the arrival date.", "strapPreorder": "Pre-order this strap", "accessoryAvailability": "Pre-order · Full payment now. Tax included, with free worldwide shipping starting 1 June 2027."});
+Object.assign(copy.ar, {"watchCta": "طلب مسبق عبر PayPal", "interestHelp": "دفع كامل الآن · السعر شامل الضريبة · شحن مجاني لجميع الدول.", "deliveryNote": "يبدأ الشحن في ١ يونيو ٢٠٢٧. هذا موعد بدء الشحن وليس موعد الوصول.", "strapPreorder": "اطلبوا هذا السوار مسبقًا", "accessoryAvailability": "طلب مسبق · دفع كامل الآن. السعر شامل الضريبة مع شحن مجاني لجميع الدول بدءًا من ١ يونيو ٢٠٢٧."});
+
 const queryLocale = new URLSearchParams(window.location.search).get("lang");
 let locale = ["en", "ar"].includes(queryLocale) ? queryLocale : (localStorage.getItem("dlvaro-locale") || "en");
 let watchData;
@@ -249,6 +252,8 @@ function renderStrap() {
   document.querySelectorAll("[data-strap-colour]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.strapColour === selectedStrap));
   });
+  const checkout = document.querySelector(".strap-checkout");
+  if (checkout) checkout.href = "checkout.html?product=strap&colour=" + selectedStrap + "&lang=" + locale;
   document.querySelector(".strap-inquiry").href = "mailto:social@dlvaroofficial.com?subject=" + encodeURIComponent("DLVARO 20 mm strap inquiry — " + copy.en[selectedStrap]);
 }
 document.querySelectorAll("[data-strap-colour]").forEach((button) => {

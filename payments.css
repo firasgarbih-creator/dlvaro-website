@@ -1,0 +1,30 @@
+.checkout-page { max-width: 1360px; margin: auto; padding: 164px var(--page-pad) 80px; color: var(--text-warm); }
+.checkout-heading { margin-bottom: 36px; }
+.checkout-heading h1 { font-size: clamp(32px, 4vw, 56px); line-height: 1.2; margin: 12px 0; }
+.checkout-heading p { max-width: 660px; line-height: 1.8; }
+.checkout-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.checkout-visual { margin: 0; background: #030404; border: 1px solid var(--rule-dark); }
+.checkout-visual img { display: block; width: 100%; height: 460px; object-fit: contain; }
+.checkout-visual figcaption { padding: 14px 20px; font-size: 14px; color: var(--text-warm-soft); }
+.checkout-summary h2 { margin: 0 0 10px; font-size: 28px; }
+.checkout-details { margin: 24px 0; }
+.checkout-details > div { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--rule-dark); }
+.checkout-details dt { color: var(--text-warm-soft); }
+.checkout-details dd { margin: 0; text-align: end; }
+.checkout-details .checkout-total { font-size: 22px; }
+.checkout-terms p, .checkout-summary > p { font-size: 15px; line-height: 1.8; margin: 12px 0; }
+.checkout-colour-note { padding: 14px 18px; border-inline-start: 2px solid var(--orange); background: var(--ink-raised); }
+.checkout-consent { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.75; margin: 25px 0 18px; cursor: pointer; }
+.checkout-consent input { width: 20px; height: 20px; flex: 0 0 20px; margin-top: 4px; accent-color: var(--orange); }
+.checkout-pay { width: 100%; justify-content: center; min-height: 54px; cursor: pointer; font: inherit; }
+.checkout-pay:disabled { opacity: .45; cursor: not-allowed; }
+.checkout-support { display: inline-block; margin-top: 15px; font-size: 14px; text-underline-offset: 4px; }
+.checkout-error { border: 1px solid var(--rule-dark); padding: 30px; line-height: 1.8; }
+.strap-checkout { margin-block: 8px 16px; }
+@media (max-width: 760px) {
+  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-visual img { height: 260px; }
+  .checkout-page { padding-top: 124px; }
+  .checkout-heading { margin-bottom: 24px; }
+  .checkout-details > div { font-size: 16px; }
+}
