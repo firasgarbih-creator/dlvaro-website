@@ -878,7 +878,7 @@ html[dir="ltr"] .site-header .header-actions { grid-column:3; justify-content:fl
 .watch-page-copy h1 small { font-size: 13px; white-space: normal; }
 @media(min-width:1201px) {
  .site-header .primary-nav { gap: 10px; }
- .site-header .primary-nav a { font-size: clamp(10px,.86vw,12px); letter-spacing: 0; }
+ .site-header .primary-nav a { font-size: clamp(12px,1vw,14px); letter-spacing: 0; }
 }
 @media(max-width:620px) {
  .hero h1 { font-size: clamp(42px,11vw,58px); }
