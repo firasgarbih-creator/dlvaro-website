@@ -28,7 +28,7 @@
   const amount = (value, code) => {
     const digits = new Intl.NumberFormat(ar() ? 'ar-SA' : 'en-US', {
       numberingSystem: ar() ? 'arab' : 'latn', useGrouping: true,
-      minimumFractionDigits: code === 'USD' ? 0 : 2, maximumFractionDigits: 2
+      minimumFractionDigits: 0, maximumFractionDigits: 2
     }).format(value).replace(/\u066c/g, ',');
     return '<span class="currency-amount" role="img" aria-label="' + digits + ' ' + currencyName(code) + '">' +
       symbol(code) + '<bdi>' + digits + '</bdi></span>';
