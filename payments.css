@@ -28,3 +28,26 @@
   .checkout-heading { margin-bottom: 24px; }
   .checkout-details > div { font-size: 16px; }
 }
+.edition-picker { margin: 24px 0; padding-block: 24px; border-block: 1px solid var(--rule-dark); }
+.edition-picker h3 { font-size: 22px; margin: 0 0 10px; }
+.edition-picker p { font-size: 15px; line-height: 1.8; }
+.edition-legend { display: flex; gap: 18px; flex-wrap: wrap; margin: 18px 0; font-size: 13px; }
+.edition-legend span::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-inline-end: 7px; border: 1px solid var(--text-warm); }
+.edition-legend .sold::before { background: #625b50; border-color: #625b50; }
+.edition-legend .reserved::before { background: var(--orange); border-color: var(--orange); }
+.edition-grid { display: grid; grid-template-columns: repeat(10,minmax(0,1fr)); gap: 8px; direction: ltr; }
+.edition-number { color: var(--text-warm); background: transparent; border: 1px solid #665a49; border-radius: 2px; padding: 10px 3px; cursor: pointer; font: inherit; min-height: 62px; }
+.edition-number bdi { display: block; font-size: 18px; }
+.edition-number small { display: block; font-size: 10px; margin-top: 3px; }
+.edition-number.sold { color: #998b77; background: #1b1b18; border-color: #33332d; }
+.edition-number.sold bdi { text-decoration: line-through; }
+.edition-number.reserved { border-style: dashed; }
+.edition-number:disabled { cursor: not-allowed; }
+.edition-number:not(:disabled):hover,.edition-number[aria-pressed="true"] { border-color: var(--orange-light); background: #392014; }
+.edition-number:focus-visible { outline: 2px solid var(--orange-light); outline-offset: 3px; }
+.edition-refresh,.edition-signin { color: var(--text-warm); font: inherit; background: none; border: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; padding: 8px 0; }
+.edition-signin { display: block; margin-block: 10px; }
+.edition-signin[hidden] { display: none; }
+.edition-selection { color: var(--orange-light); }
+
+@media(max-width:760px){.edition-grid{grid-template-columns:repeat(5,minmax(0,1fr));}.edition-number small{font-size:11px;}}

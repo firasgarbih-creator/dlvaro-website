@@ -82,6 +82,23 @@
     subscriptionInput.disabled = false;
     preferencesForm.querySelector('button').disabled = false;
     message('signedIn');
+    const continuation = new URLSearchParams(location.search);
+    if (continuation.get('return') === 'checkout') {
+      const destination = new URL('checkout.html', location.href);
+      destination.searchParams.set('product', 'watch');
+      destination.searchParams.set('lang', lang());
+      const number = Number(continuation.get('number'));
+      if (Number.isInteger(number) && number >= 1 && number <= 50) destination.searchParams.set('number', number);
+      try {
+        const pending = JSON.parse(sessionStorage.getItem('dlvaro-payment-return') || 'null');
+        if (pending && ['return','cancel'].includes(pending.mode)) {
+          destination.searchParams.set('payment', pending.mode);
+          if (/^[A-Z0-9]{10,32}$/.test(pending.token || '')) destination.searchParams.set('token', pending.token);
+        }
+        sessionStorage.removeItem('dlvaro-payment-return');
+      } catch (_) {}
+      location.assign(destination.href);
+    }
     return true;
   }
   async function savePreferences(subscribed) {

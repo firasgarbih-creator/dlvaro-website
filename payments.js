@@ -7,10 +7,10 @@
   const colours = {orange:['Orange','برتقالي'],white:['White','أبيض'],yellow:['Yellow','أصفر'],green:['Green','أخضر'],black:['Black','أسود'],burgundy:['Burgundy','عنابي'],blue:['Blue','أزرق'],brown:['Brown','بني']};
   const requestedColour = params.get('colour');
   const colour = Object.hasOwn(colours, requestedColour) ? requestedColour : 'orange';
-  // Prices and stock are enforced by these merchant-managed PayPal links.
+  // Watch prices and numbers are enforced by the server; straps use a merchant-managed link.
   // Never accept a payment URL or an amount from the query string.
-  const links = {watch:'https://www.paypal.com/ncp/payment/KAYNQ6TY67LTW',strap:'https://www.paypal.com/ncp/payment/7PB8H22CYS3T4'};
-  const validProduct = Object.hasOwn(links, product);
+  const links = {strap:'https://www.paypal.com/ncp/payment/7PB8H22CYS3T4'};
+  const validProduct = product === 'watch' || product === 'strap';
   const ar = () => document.documentElement.lang === 'ar';
   const t = (en, arabic) => ar() ? arabic : en;
   function render() {
@@ -27,6 +27,7 @@
     const accepted = root.querySelector('#preorder-consent')?.checked || false;
     root.innerHTML = `
       <div class="checkout-heading"><p class="eyebrow">${t('DLVARO / PRE-ORDER','DLVARO / طلب مسبق')}</p><h1>${t('Review your pre-order','مراجعة طلبكم المسبق')}</h1><p>${t('A creation worth waiting for. Review the details before continuing to PayPal.','إبداع يستحق الانتظار. راجعوا التفاصيل قبل المتابعة إلى PayPal.')}</p></div>
+      ${strap?'':window.DLVAROEdition.markup()}
       <div class="checkout-grid"><figure class="checkout-visual"><img src="${strap?'assets/strap-'+colour+'.jpg':'assets/dv-01-approved.png'}" alt="${title}${strap?' — '+selected:''}"><figcaption>${t('Design visualization.','تصوّر بصري للتصميم.')}</figcaption></figure>
       <section class="checkout-summary" aria-label="${t('Order summary','ملخص الطلب')}"><h2 dir="${strap?(ar()?'rtl':'ltr'):'ltr'}">${title}</h2>
       <p>${strap?t('Rubber and fabric · 20 mm · '+selected,'مطاط وقماش · ٢٠ مم · '+selected):t('Limited edition · 50 numbered pieces','إصدار محدود · ٥٠ قطعة مرقّمة')}</p>
@@ -38,18 +39,28 @@
       <a class="checkout-support" href="mailto:social@dlvaroofficial.com">${t('Questions? Contact customer service','للاستفسار، تواصلوا مع خدمة العملاء')}</a></section></div>`;
     const consent = root.querySelector('#preorder-consent');
     const button = root.querySelector('.checkout-pay');
-    consent.addEventListener('change', () => { button.disabled = !consent.checked; });
+    function syncPayment() { button.disabled = !consent.checked || (!strap && !window.DLVAROEdition.canPay()); }
+    consent.addEventListener('change', syncPayment);
+    if (!strap) window.DLVAROEdition.mount();
+    syncPayment();
     root.querySelector('#preorder-form').addEventListener('submit', event => {
       event.preventDefault();
-      if (consent.checked) location.assign(links[product]);
+      if (!consent.checked) return;
+      if (strap) location.assign(links.strap);
+      else window.DLVAROEdition.start();
     });
   }
   document.addEventListener('dlvaro:locale', render);
+  document.addEventListener('dlvaro:number', () => {
+    const consent = root.querySelector('#preorder-consent');
+    const button = root.querySelector('.checkout-pay');
+    if (consent && button) button.disabled = !consent.checked || !window.DLVAROEdition.canPay();
+  });
   // Browsers can restore checkbox state when returning from PayPal.
   window.addEventListener('pageshow', () => {
     const consent = root.querySelector('#preorder-consent');
     const button = root.querySelector('.checkout-pay');
-    if (consent && button) button.disabled = !consent.checked;
+    if (consent && button) button.disabled = !consent.checked || (product === 'watch' && !window.DLVAROEdition.canPay());
   });
   render();
 })();
