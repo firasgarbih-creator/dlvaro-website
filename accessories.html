@@ -10,11 +10,13 @@
   <link rel="alternate" hreflang="x-default" href="accessories.html?lang=en">
   <title>Accessories — DLVARO</title>
   <script>try { if (!sessionStorage.getItem("dlvaro-splash-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("splash-pending"); } catch (_) {}</script>
-  <link rel="preload" as="image" href="assets/strap-orange.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/strap-orange.jpg" fetchpriority="high" imagesrcset="assets/highres/strap-orange-640.webp 640w, assets/highres/strap-orange-1600.webp 1600w, assets/highres/strap-orange-3200.webp 3200w, assets/highres/strap-orange-8k.webp 7680w" imagesizes="(min-width:1200px) 720px, 90vw">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=dail-1">
+  <link rel="stylesheet" href="image-quality.css?v=8k-1">
+  <script src="image-quality.js?v=8k-1" defer></script>
   <script src="app.js?v=dail-1" defer></script>
   <link rel="stylesheet" href="currency.css?v=symbols-1">
   <script src="currency.js?v=trim-zeros-1" defer></script>
@@ -25,14 +27,14 @@
   <div class="brand-splash" aria-label="DLVARO opening animation">
     <button class="splash-skip" type="button" data-i18n="splashSkip">Skip intro</button>
     <div class="splash-lockup" aria-hidden="true">
-      <img src="assets/dlvaro-logo.png" alt="">
+      <img src="assets/dlvaro-logo.png" alt="" srcset="assets/highres/dlvaro-logo-640.webp 489w, assets/highres/dlvaro-logo-1600.webp 1222w, assets/highres/dlvaro-logo-3200.webp 2444w, assets/highres/dlvaro-logo-8k.webp 5866w" sizes="160px" width="1096" height="1435" decoding="async">
       <p data-i18n="splashLine">The watch is the canvas. Time is the medium.</p>
     </div>
     <span class="splash-rule" aria-hidden="true"></span>
   </div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="DLVARO home">
-      <img src="assets/dlvaro-logo.png" alt="DLVARO emblem and wordmark">
+      <img src="assets/dlvaro-logo.png" alt="DLVARO emblem and wordmark" srcset="assets/highres/dlvaro-logo-640.webp 489w, assets/highres/dlvaro-logo-1600.webp 1222w, assets/highres/dlvaro-logo-3200.webp 2444w, assets/highres/dlvaro-logo-8k.webp 5866w" sizes="160px" width="1096" height="1435" decoding="async">
     </a>
     <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
       <a href="index.html" data-i18n="navHome">Home</a>
@@ -54,7 +56,7 @@
   </header>
 
   <main id="main"><section class="page-intro section-pad"><div class="section-kicker reveal"><a href="index.html" data-i18n="navHome">Home</a><span>/ 02</span></div><h1 class="reveal" data-i18n="navAccessories">Accessories</h1><p class="reveal" data-i18n="accessoriesIntro">Eight colours. One design language. Explore DLVARO straps in rubber and fabric.</p></section><section class="accessory-feature strap-showcase section-pad">
-  <figure class="accessory-photo reveal"><img class="strap-image" src="assets/strap-orange.jpg" alt="Orange DLVARO rubber and fabric strap" width="1402" height="1122" fetchpriority="high"><figcaption data-i18n="strapPhotoNote">Front, back, and side views of the selected strap.</figcaption></figure>
+  <figure class="accessory-photo reveal"><img class="strap-image" src="assets/strap-orange.jpg" alt="Orange DLVARO rubber and fabric strap" width="1402" height="1122" fetchpriority="high" srcset="assets/highres/strap-orange-640.webp 640w, assets/highres/strap-orange-1600.webp 1600w, assets/highres/strap-orange-3200.webp 3200w, assets/highres/strap-orange-8k.webp 7680w" sizes="(min-width:1200px) 720px, 90vw" decoding="async"><figcaption data-i18n="strapPhotoNote">Front, back, and side views of the selected strap.</figcaption></figure>
   <div class="accessory-copy reveal"><p class="eyebrow" data-i18n="strapKicker">DLVARO straps</p><h2 data-i18n="strapTitle">A colour for your expression.</h2><p data-i18n="strapDescription">A blend of rubber and fabric, with a 20 mm width. Select a colour to explore the strap in detail.</p><dl class="launch-details strap-price"><div><dt data-i18n="strapPriceLabel">Price per strap</dt><dd data-product-price>$150</dd></div></dl><div class="strap-colours" role="group" aria-label="Select a strap colour" data-i18n-aria="selectColour"><button type="button" class="strap-colour" data-strap-colour="orange" aria-pressed="true"><span class="swatch swatch-orange" aria-hidden="true"></span><span data-i18n="orange">Orange</span></button><button type="button" class="strap-colour" data-strap-colour="white" aria-pressed="false"><span class="swatch swatch-white" aria-hidden="true"></span><span data-i18n="white">White</span></button><button type="button" class="strap-colour" data-strap-colour="yellow" aria-pressed="false"><span class="swatch swatch-yellow" aria-hidden="true"></span><span data-i18n="yellow">Yellow</span></button><button type="button" class="strap-colour" data-strap-colour="green" aria-pressed="false"><span class="swatch swatch-green" aria-hidden="true"></span><span data-i18n="green">Green</span></button><button type="button" class="strap-colour" data-strap-colour="black" aria-pressed="false"><span class="swatch swatch-black" aria-hidden="true"></span><span data-i18n="black">Black</span></button><button type="button" class="strap-colour" data-strap-colour="burgundy" aria-pressed="false"><span class="swatch swatch-burgundy" aria-hidden="true"></span><span data-i18n="burgundy">Burgundy</span></button><button type="button" class="strap-colour" data-strap-colour="blue" aria-pressed="false"><span class="swatch swatch-blue" aria-hidden="true"></span><span data-i18n="blue">Blue</span></button><button type="button" class="strap-colour" data-strap-colour="brown" aria-pressed="false"><span class="swatch swatch-brown" aria-hidden="true"></span><span data-i18n="brown">Brown</span></button></div><p class="colour-status" aria-live="polite"><span data-i18n="colour">Colour</span>: <strong class="selected-colour">Orange</strong></p><dl class="accessory-specs"><div><dt data-i18n="material">Material</dt><dd data-i18n="strapMaterial">Rubber and fabric blend</dd></div><div><dt data-i18n="strapSize">Width</dt><dd data-i18n="strapSizeValue">20 mm</dd></div></dl><p class="service-note" data-i18n="accessoryAvailability">Pre-order · Full payment now. Tax included, with free worldwide shipping starting 1 June 2027.</p><a class="button-outline strap-checkout" href="checkout.html?product=strap&amp;colour=orange" data-i18n="strapPreorder">Pre-order this strap</a><br><a class="button-outline strap-inquiry" href="mailto:social@dlvaroofficial.com?subject=DLVARO%20Strap%20Inquiry"><span data-i18n="strapInquiry">Inquire about straps</span><span aria-hidden="true"><svg class='direction-arrow' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M5 19 19 5M5 5h14v14'/></svg></span></a></div>
 </section></main>
 

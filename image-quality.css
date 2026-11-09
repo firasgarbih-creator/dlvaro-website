@@ -1,0 +1,4 @@
+.image-fullsize-link { display:block; width:fit-content; margin:12px auto 0; color:var(--text-warm,#e6d2b4); font:inherit; font-size:13px; line-height:1.6; text-decoration:underline; text-underline-offset:4px; }
+.image-fullsize-link:hover,.image-fullsize-link:focus-visible { color:var(--orange-light,#f47a45); }
+.dial-lightbox-top .image-fullsize-link,.case-lightbox-top .image-fullsize-link { margin:0; }
+@media(max-width:620px) { .image-fullsize-link { font-size:14px; } .dial-lightbox-top,.case-lightbox-top { flex-wrap:wrap; gap:10px; } }
