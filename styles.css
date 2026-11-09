@@ -918,3 +918,6 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
 .swatch-blue { background: #123f70; }
 .swatch-brown { background: #855137; }
 .strap-colour { font-size: 14px; min-height: 44px; }
+
+/* Allow the dial link to fit beside the centred brand at compact desktop widths. */
+@media (min-width:1201px) and (max-width:1350px) { .site-header .primary-nav { gap:6px; } }
