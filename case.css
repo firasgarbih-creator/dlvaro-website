@@ -21,7 +21,7 @@ html[dir="rtl"] .case-intro h1 { text-align: right; font-family: var(--arabic-sa
 .case-controls button, .case-close { min-height: 44px; min-width: 44px; border: 1px solid rgba(230,210,180,.25); background: transparent; color: var(--text-warm); cursor: pointer; font: inherit; }
 .case-controls button { font-size: 20px; }
 .case-controls button:hover, .case-close:hover, .case-stage:hover .case-enlarge { border-color: var(--orange); }
-.case-thumbnails { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+.case-thumbnails { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
 .case-thumb { position: relative; display: block; background: #000; border: 1px solid rgba(230,210,180,.16); transition: border-color .2s; }
 .case-thumb img { display: block; width: 100%; height: clamp(62px,7vw,95px); object-fit: contain; opacity: .65; transition: opacity .2s; }
 .case-thumb[aria-current="true"] { border-color: var(--orange); }

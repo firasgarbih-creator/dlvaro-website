@@ -3,20 +3,15 @@
   const page = document.querySelector('.dial-page');
   if (!page) return;
   const links = [...page.querySelectorAll('[data-dial-index]')];
-  const diagramButtons = [...page.querySelectorAll('[data-diagram]')];
   const dialog = page.querySelector('.dial-lightbox');
   const image = dialog.querySelector('.dial-full-image');
   let active = 0;
   let opener;
-  function diagram(language) {
-    page.querySelectorAll('[data-diagram-panel]').forEach(panel => { panel.hidden = panel.dataset.diagramPanel !== language; });
-    diagramButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.diagram === language)));
-  }
   function show(index) {
     active = (index + links.length) % links.length;
     image.src = links[active].href;
     image.alt = links[active].querySelector('img').alt;
-    dialog.querySelector('.dial-count').textContent = String(active + 1).padStart(2,'0') + ' / 04';
+    dialog.querySelector('.dial-count').textContent = String(active + 1).padStart(2,'0') + ' / ' + String(links.length).padStart(2,'0');
   }
   links.forEach((link,index) => link.addEventListener('click', event => {
     event.preventDefault();
@@ -25,7 +20,6 @@
     dialog.showModal();
     document.body.classList.add('dial-modal-open');
   }));
-  diagramButtons.forEach(button => button.addEventListener('click', () => diagram(button.dataset.diagram)));
   dialog.querySelector('.dial-close').addEventListener('click', () => dialog.close());
   dialog.querySelector('.dial-prev').addEventListener('click', () => show(active - 1));
   dialog.querySelector('.dial-next').addEventListener('click', () => show(active + 1));
@@ -39,7 +33,6 @@
     opener?.focus();
   });
   const localize = () => {
-    diagram(document.documentElement.lang === 'ar' ? 'ar' : 'en');
     if (dialog.open) show(active);
   };
   document.addEventListener('dlvaro:locale', localize);

@@ -11,14 +11,14 @@
   function show(index, animate = true) {
     active = (index + thumbs.length) % thumbs.length;
     const thumb = thumbs[active];
-    const alt = copy[locale]['caseAlt' + (active + 1)];
+    const alt = copy[locale][thumb.querySelector('img').dataset.i18nAlt];
     image.src = thumb.href;
     image.alt = alt;
     stage.href = thumb.href;
     fullImage.src = thumb.href;
     fullImage.alt = alt;
     thumbs.forEach((item, i) => item.setAttribute('aria-current', String(i === active)));
-    document.querySelectorAll('.case-count').forEach(node => { node.textContent = String(active + 1).padStart(2, '0') + ' / 05'; });
+    document.querySelectorAll('.case-count').forEach(node => { node.textContent = String(active + 1).padStart(2, '0') + ' / ' + String(thumbs.length).padStart(2, '0'); });
     if (animate) {
       stage.classList.remove('is-changing');
       requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('is-changing')));
