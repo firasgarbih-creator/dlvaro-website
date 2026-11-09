@@ -7,7 +7,10 @@
     "en": "The first DLVARO creation brings together a sculptural steel case, a geometric dial, and an orange hybrid strap. A design-led expression of the brand’s founding idea.",
     "ar": "يجمع أول إبداعات DLVARO بين علبة فولاذية ذات حضور نحتي، وميناء هندسي، وسوار برتقالي مركّب. تعبير تصميمي عن فكرة العلامة التأسيسية."
   },
-  "movement": "Sellita SW200-1",
+  "movement": {
+    "en": "Swiss movement",
+    "ar": "ماكينة سويسرية"
+  },
   "dateDisplay": {
     "en": "Date display",
     "ar": "عرض التاريخ"
