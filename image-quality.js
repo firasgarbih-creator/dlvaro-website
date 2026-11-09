@@ -6,7 +6,6 @@
     known.set('/' + record.original, record);
     record.variants.forEach(variant => known.set('/' + variant.src, record));
   });
-  const label = () => document.documentElement.lang === 'ar' ? 'عرض الصورة بالحجم الكامل ↗' : 'View full-size image ↗';
   const getRecord = img => {
     try { return known.get(new URL(img.getAttribute('src'), location.href).pathname); }
     catch (_) { return null; }
@@ -16,32 +15,13 @@
     if (width > 0) img.sizes = width + 'px';
   };
   const observer = new ResizeObserver(entries => entries.forEach(entry => resize(entry.target)));
-  function fullLink(img, record) {
-    let host;
-    if (img.matches('.dial-full-image,.case-full-image')) host = img.closest('dialog').querySelector('.dial-lightbox-top,.case-lightbox-top');
-    else if (img.closest('main') && !img.closest('a,[aria-hidden="true"]') && !img.matches('#case-image')) host = img.parentElement;
-    if (!host) return;
-    let link = host.querySelector(':scope > .image-fullsize-link');
-    if (!link) {
-      link = document.createElement('a');
-      link.className = 'image-fullsize-link';
-      link.target = '_blank';
-      link.rel = 'noopener';
-      const close = host.querySelector(':scope > button');
-      if (close) host.insertBefore(link, close); else host.append(link);
-    }
-    link.href = record.full;
-    link.textContent = label();
-  }
   function apply(img) {
     const record = getRecord(img);
     if (!record) return;
     img.srcset = record.variants.map(v => v.src + ' ' + v.width + 'w').join(', ');
-    img.dataset.fullImage = record.full;
     if (!img.hasAttribute('sizes')) img.sizes = '100vw';
     resize(img);
     observer.observe(img);
-    fullLink(img,record);
   }
   const scan = root => {
     if (root.nodeType !== 1) return;
@@ -53,7 +33,4 @@
     if (m.type === 'attributes') apply(m.target);
     else m.addedNodes.forEach(scan);
   })).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['src']});
-  document.addEventListener('dlvaro:locale', () => {
-    document.querySelectorAll('.image-fullsize-link').forEach(link => { link.textContent = label(); });
-  });
 })();
