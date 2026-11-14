@@ -49,6 +49,11 @@ Object.assign(copy.ar, {"dialAnatomyAlt": "مخطط ميناء DLVARO DV-01 مع
 Object.assign(copy.en, {dialNightKicker: "DV-01 / Light & shadow"});
 Object.assign(copy.ar, {dialNightKicker: "DV-01 / الضوء والظل"});
 
+
+// Collections: an image-led entry into each timepiece.
+Object.assign(copy.en, {"navProducts": "Collections", "exploreProducts": "Explore the collections", "collectionsCurrent": "Current collection", "collectionsIntro": "A singular beginning. Fifty numbered expressions.", "collectionsType": "Swiss movement · Automatic", "collectionsDiscover": "Explore the timepiece", "collectionsNavigation": "Timepiece navigation", "collectionsOverview": "Overview", "productsMeta": "Explore the DLVARO collections. Discover DV-01, a limited edition of fifty numbered pieces.", "productsIntro": "Explore the DLVARO collections. Discover the first creation: DV-01."});
+Object.assign(copy.ar, {"navProducts": "المجموعات", "exploreProducts": "اكتشفوا المجموعات", "collectionsCurrent": "المجموعة الحالية", "collectionsIntro": "بداية فريدة. خمسون قطعة مرقّمة.", "collectionsType": "ماكينة سويسرية · أوتوماتيك", "collectionsDiscover": "اكتشفوا الساعة", "collectionsNavigation": "التنقل بين تفاصيل الساعة", "collectionsOverview": "نظرة عامة", "productsMeta": "اكتشفوا مجموعات DLVARO. تعرّفوا على DV-01، إصدار محدود من خمسين قطعة مرقّمة.", "productsIntro": "اكتشفوا مجموعات DLVARO والإبداع الأول: DV-01."});
+
 const queryLocale = new URLSearchParams(window.location.search).get("lang");
 let locale = ["en", "ar"].includes(queryLocale) ? queryLocale : (localStorage.getItem("dlvaro-locale") || "en");
 let watchData;
