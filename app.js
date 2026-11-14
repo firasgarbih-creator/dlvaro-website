@@ -54,6 +54,9 @@ Object.assign(copy.ar, {dialNightKicker: "DV-01 / الضوء والظل"});
 Object.assign(copy.en, {"navProducts": "Collections", "exploreProducts": "Explore the collections", "collectionsCurrent": "Current collection", "collectionsIntro": "A singular beginning. Fifty numbered expressions.", "collectionsType": "Swiss movement · Automatic", "collectionsDiscover": "Explore the timepiece", "collectionsNavigation": "Timepiece navigation", "collectionsOverview": "Overview", "productsMeta": "Explore the DLVARO collections. Discover DV-01, a limited edition of fifty numbered pieces.", "productsIntro": "Explore the DLVARO collections. Discover the first creation: DV-01."});
 Object.assign(copy.ar, {"navProducts": "المجموعات", "exploreProducts": "اكتشفوا المجموعات", "collectionsCurrent": "المجموعة الحالية", "collectionsIntro": "بداية فريدة. خمسون قطعة مرقّمة.", "collectionsType": "ماكينة سويسرية · أوتوماتيك", "collectionsDiscover": "اكتشفوا الساعة", "collectionsNavigation": "التنقل بين تفاصيل الساعة", "collectionsOverview": "نظرة عامة", "productsMeta": "اكتشفوا مجموعات DLVARO. تعرّفوا على DV-01، إصدار محدود من خمسين قطعة مرقّمة.", "productsIntro": "اكتشفوا مجموعات DLVARO والإبداع الأول: DV-01."});
 
+Object.assign(copy.en, {"productionTitle": "Limited annual production", "productionText": "DLVARO’s annual production is limited to a maximum of 200 pieces, divided across four collections. Each collection is a limited edition of 50 pieces."});
+Object.assign(copy.ar, {"productionTitle": "إنتاج سنوي محدود", "productionText": "يبلغ الحد الأقصى لإنتاج DLVARO السنوي ٢٠٠ قطعة فقط، موزّعة على أربع مجموعات، كل مجموعة إصدار محدود من ٥٠ قطعة."});
+
 const queryLocale = new URLSearchParams(window.location.search).get("lang");
 let locale = ["en", "ar"].includes(queryLocale) ? queryLocale : (localStorage.getItem("dlvaro-locale") || "en");
 let watchData;
