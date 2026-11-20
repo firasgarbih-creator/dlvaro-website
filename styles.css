@@ -921,3 +921,18 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
 
 /* Allow the dial link to fit beside the centred brand at compact desktop widths. */
 @media (min-width:1201px) and (max-width:1350px) { .site-header .primary-nav { gap:6px; } }
+
+/* Supplied silver emblem, shared across every brand lockup. */
+.brand-wordmark { display:block; direction:ltr; font-family:Georgia,"Times New Roman",serif; font-weight:600; font-style:normal; line-height:1.1; letter-spacing:.045em; color:#d3d2d0; text-align:center; }
+.site-header .brand { display:flex; flex-direction:column; justify-content:center; gap:3px; }
+.site-header .brand img { width:70px; height:70px; filter:none; }
+.site-header .brand-wordmark { font-size:17px; }
+.splash-lockup { gap:12px; }
+.splash-lockup img { width:clamp(160px,24vw,270px); height:auto; max-height:40svh; }
+.splash-lockup .brand-wordmark { font-size:clamp(30px,5vw,49px); }
+.about-emblem img { filter:none; }
+.about-emblem .brand-wordmark { font-size:clamp(34px,4.2vw,52px); margin-top:14px; }
+@media(max-width:1200px) {
+ .site-header .brand img { width:57px; height:57px; }
+ .site-header .brand-wordmark { font-size:14px; }
+}
