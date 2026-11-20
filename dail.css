@@ -58,3 +58,6 @@ html[dir="rtl"] .dial-lightbox .direction-arrow { transform:rotate(180deg); }
  .dial-lightbox button { padding:9px 14px; }
 }
 @media(prefers-reduced-motion:reduce) { .dial-image-link img { transition:none; } .dial-image-link:hover img { transform:none; } }
+
+/* Keep the enlarge control clear of the translated date-wheel label. */
+.dial-anatomy-figure .dial-enlarge { top:8px; bottom:auto; }
