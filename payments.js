@@ -31,7 +31,7 @@
     root.innerHTML = `
       <div class="checkout-heading"><p class="eyebrow">${t('DLVARO / PRE-ORDER','DLVARO / طلب مسبق')}</p><h1>${t('Review your pre-order','مراجعة طلبكم المسبق')}</h1><p>${t('A creation worth waiting for. Review the details before continuing to PayPal.','إبداع يستحق الانتظار. راجعوا التفاصيل قبل المتابعة إلى PayPal.')}</p></div>
       ${strap?'':window.DLVAROEdition.markup()}
-      <div class="checkout-grid"><figure class="checkout-visual"><img src="${strap?'assets/strap-'+colour+'.jpg':'assets/dv-01-approved.png'}" alt="${title}${strap?' — '+selected:''}"><figcaption>${t('Design visualization.','تصوّر بصري للتصميم.')}</figcaption></figure>
+      <div class="checkout-grid"><figure class="checkout-visual"><img src="${strap?'assets/strap-'+colour+'.jpg':'assets/dv-01-watch-silver-tips-20261120.jpg'}" alt="${title}${strap?' — '+selected:''}"><figcaption>${t('Design visualization.','تصوّر بصري للتصميم.')}</figcaption></figure>
       <section class="checkout-summary" aria-label="${t('Order summary','ملخص الطلب')}"><h2 dir="${strap?(ar()?'rtl':'ltr'):'ltr'}">${title}</h2>
       <p>${strap?t('Rubber and fabric · 20 mm · '+selected,'مطاط وقماش · ٢٠ مم · '+selected):t('Limited edition · 50 numbered pieces','إصدار محدود · ٥٠ قطعة مرقّمة')}</p>
       <dl class="checkout-details"><div><dt>${t('Quantity','الكمية')}</dt><dd>1</dd></div><div><dt>${t('Price, tax included','السعر شامل الضريبة')}</dt><dd><bdi>${price}</bdi></dd></div><div><dt>${t('Worldwide shipping','الشحن لجميع الدول')}</dt><dd>${t('Free','مجاني')}</dd></div><div class="checkout-total"><dt>${t('Full amount due now','المبلغ الكامل المستحق الآن')}</dt><dd><bdi>${price}</bdi></dd></div></dl>
