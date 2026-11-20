@@ -936,3 +936,16 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
  .site-header .brand img { width:57px; height:57px; }
  .site-header .brand-wordmark { font-size:14px; }
 }
+
+/* Bright polished silver for the shared emblem and wordmark. */
+.site-header .brand img, .about-emblem img, .splash-lockup img {
+ filter:grayscale(1) brightness(1.22) contrast(1.12) drop-shadow(0 1px 5px rgba(222,231,241,.12));
+}
+.brand-wordmark { color:#e5e9ef; }
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ .brand-wordmark {
+  background:linear-gradient(175deg,#fff 0%,#e7ecf2 23%,#a2acb8 43%,#fff 51%,#e6ebf1 64%,#a5aeb9 82%,#f9fbff 100%);
+  background-clip:text; -webkit-background-clip:text; color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.45));
+ }
+}
