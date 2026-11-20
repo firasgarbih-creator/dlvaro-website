@@ -33,6 +33,14 @@
     opener?.focus();
   });
   const localize = () => {
+    const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+    page.querySelectorAll('[data-dial-localized]').forEach(link => {
+      const src = lang === 'ar' ? link.dataset.imageAr : link.dataset.imageEn;
+      const img = link.querySelector('img');
+      link.setAttribute('href', src);
+      img.srcset = src.replace('.jpg', '-640.jpg') + ' 640w, ' + src + ' 1024w';
+      img.setAttribute('src', src);
+    });
     if (dialog.open) show(active);
   };
   document.addEventListener('dlvaro:locale', localize);
