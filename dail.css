@@ -25,7 +25,8 @@
 .dial-page [hidden] { display:none !important; }
 .dial-diagram-controls { display:none; }
 .dial-ready .dial-diagram-controls { display:flex; }
-.dial-components figure { width:92%; max-width:760px; margin:18px auto; }
+.dial-components figure { width:92%; max-width:520px; margin:24px auto; }
+.dial-components-intro { max-width:780px; margin:20px auto 28px; font-size:16px; line-height:1.9; color:var(--text-warm-soft); text-align:center; }
 .dial-note { margin-top:16px; color:var(--text-warm-soft); font-size:13px; }
 .dial-details { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px; margin-top:56px; }
 .dial-details article { padding-top:20px; border-top:1px solid var(--rule-dark); }
