@@ -937,17 +937,11 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
  .site-header .brand-wordmark { font-size:14px; }
 }
 
-/* Neutral polished silver, including both emblems within the home page. */
+/* Uniform nickel silver with no metallic gradients or highlights. */
 .site-header .brand img, .about-emblem img, .splash-lockup img,
 .manifesto-stamp img, .orbit-core img {
- filter:grayscale(1) brightness(1.1) contrast(1.03);
+ filter:brightness(0) invert(.76862745);
 }
 .manifesto-stamp { opacity:1; mix-blend-mode:normal; }
 .orbit-core { mix-blend-mode:normal; }
-.brand-wordmark { color:#dedede; }
-@supports ((background-clip:text) or (-webkit-background-clip:text)) {
- .brand-wordmark {
-  background:linear-gradient(175deg,#fafafa 0%,#e5e5e5 24%,#a8a8a8 44%,#fff 52%,#e8e8e8 65%,#b0b0b0 83%,#f7f7f7 100%);
-  background-clip:text; -webkit-background-clip:text; color:transparent;
- }
-}
+.brand-wordmark { color:#c4c4c4; background:none; filter:none; text-shadow:none; }
