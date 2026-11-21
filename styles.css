@@ -937,11 +937,11 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
  .site-header .brand-wordmark { font-size:14px; }
 }
 
-/* Uniform nickel silver with no metallic gradients or highlights. */
+/* Bright silver: preserve the original emblem detail and keep the wordmark solid. */
 .site-header .brand img, .about-emblem img, .splash-lockup img,
 .manifesto-stamp img, .orbit-core img {
- filter:brightness(0) invert(.76862745);
+ filter:grayscale(1) brightness(1.1) contrast(1.03);
 }
 .manifesto-stamp { opacity:1; mix-blend-mode:normal; }
 .orbit-core { mix-blend-mode:normal; }
-.brand-wordmark { color:#c4c4c4; background:none; filter:none; text-shadow:none; }
+.brand-wordmark { color:#ededed; background:none; filter:none; text-shadow:none; }
