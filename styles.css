@@ -948,6 +948,15 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
 }
 .manifesto-stamp { opacity:1; mix-blend-mode:normal; }
 .orbit-core { mix-blend-mode:normal; }
-.brand-wordmark { color:#d9d9d9; background:none; filter:none; text-shadow:none; }
+.brand-wordmark, .site-footer .footer-brand { color:#dedede; background:none; filter:none; text-shadow:none; }
+/* A shared vertical silver reflection gives every letter the same finish. */
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ .brand-wordmark, .site-footer .footer-brand {
+  background-image:linear-gradient(180deg,#ffffff 0%,#d4d4d4 24%,#ffffff 38%,#999999 49%,#dcdcdc 60%,#ffffff 82%,#bcbcbc 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+ }
+}
 
 
