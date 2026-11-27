@@ -937,10 +937,10 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
  .site-header .brand-wordmark { font-size:14px; }
 }
 
-/* Bright silver: preserve the original emblem detail and keep the wordmark solid. */
+/* Reference-matched polished silver, preserving the supplied emblem geometry. */
 .site-header .brand img, .about-emblem img, .splash-lockup img,
 .manifesto-stamp img, .orbit-core img {
- filter:none;
+ filter:grayscale(1) brightness(.86) contrast(1.65);
  -webkit-mask:url("assets/dlvaro-emblem-20261120.png") center / contain no-repeat;
  mask:url("assets/dlvaro-emblem-20261120.png") center / contain no-repeat;
  mix-blend-mode:normal;
@@ -949,3 +949,10 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
 .manifesto-stamp { opacity:1; mix-blend-mode:normal; }
 .orbit-core { mix-blend-mode:normal; }
 .brand-wordmark { color:#ededed; background:none; filter:none; text-shadow:none; }
+
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ .brand-wordmark {
+  background:linear-gradient(115deg,#ffffff 0%,#b0b5ba 20%,#f8fafb 30%,#62686e 44%,#e8ecef 57%,#92999f 74%,#ffffff 100%);
+  background-clip:text; -webkit-background-clip:text; color:transparent;
+ }
+}
