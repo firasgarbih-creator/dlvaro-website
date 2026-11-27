@@ -948,11 +948,6 @@ html[dir="rtl"] .case-controls .direction-arrow { transform:rotate(180deg); }
 }
 .manifesto-stamp { opacity:1; mix-blend-mode:normal; }
 .orbit-core { mix-blend-mode:normal; }
-.brand-wordmark { color:#ededed; background:none; filter:none; text-shadow:none; }
+.brand-wordmark { color:#d9d9d9; background:none; filter:none; text-shadow:none; }
 
-@supports ((background-clip:text) or (-webkit-background-clip:text)) {
- .brand-wordmark {
-  background:linear-gradient(180deg,#ffffff 0%,#b0b5ba 20%,#f8fafb 30%,#62686e 44%,#e8ecef 57%,#92999f 74%,#ffffff 100%);
-  background-clip:text; -webkit-background-clip:text; color:transparent;
- }
-}
+
